@@ -1,0 +1,33 @@
+{
+  "name": "meathead_meetup",
+  "version": "0.1.0",
+  "description": "Meet meatheads for meeting up for the gyms",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "gulp": "^3.9.0",
+    "gulp-concat-css": "^2.2.0",
+    "gulp-minify-css": "^1.2.3",
+    "gulp-sass": "^2.1.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "mongoose": "^4.3.7",
+    "webpack-stream": "^3.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DZwell/meathead_meetup.git"
+  },
+  "author": "Mike Skalandunas <mskalandunas@gmail.com> (https://github.com/mskalandunas)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/DZwell/meathead_meetup/issues"
+  },
+  "homepage": "https://github.com/DZwell/meathead_meetup#readme"
+}
