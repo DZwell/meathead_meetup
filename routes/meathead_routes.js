@@ -24,3 +24,20 @@ meatheadsRouter.post('/meatheads', bodyParser.json(), function(req, res) {
   });
 });
 
+meatheadsRouter.put('/meatheads/:id', bodyParser.json(), function(req, res) {
+  var meatheadData = req.body;
+  delete meatheadData._id;
+  Meathead.update({_id: req.params.id}, meatheadData, function(err) {
+    if (err) return handleError(err, res);
+
+    res.json({msg: 'A new meathead joins the search for a buddy!'});
+  });
+});
+
+meatheadsRouter.delete('/meatheads/:id', function(req, res) {
+  Meathead.remove({_id: req.params.id}, function(err) {
+    if (err) return handleError(err, res);
+
+    res.json({msg: 'Meathead removed.'});
+  });
+});
