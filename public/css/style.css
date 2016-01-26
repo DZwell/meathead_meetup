@@ -1,0 +1,27 @@
+a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: #ff1a1a;
+}
+
+.img-border {
+  border-radius: 10px;
+}
+
+.fa-inverse {
+  color: #525252;
+}
+
+.line-space {
+  margin-top: 50px;
+}
+
+/* Footer */
+.uk-icon-github {
+  color: rgba(255,255,255,0.7);
+}
+
+.uk-icon-github:active,
+.uk-icon-github:focus,
+.uk-icon-github:hover {
+  color: #4078c0;
+}
