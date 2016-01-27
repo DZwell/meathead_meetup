@@ -1,21 +1,22 @@
-
-
 function matchMaker(meatHead, userList) {
-    if (JSON.stringify(meatHead1) === JSON.stringify(meatHead2)) {
-        console.log('We found a match!');
-        return '';
+    //Shifts array so meatHead is at index 0
+    while (userList.indexOf(meatHead) != 0) {
+        userList.unshift(userList.pop());
     }
-    console.log('Sorry, no one is available to work out at this time.');
-    return '';
+    console.log(userList);
+    // for (i in userList) {
+    //     if(meathead )
+    // }
 }
 
+var jose = {'name': 'Jose', 'day': 'tuesday', 'time': '6 AM', 'location': 'anytime fitness'};
+var brady = {'name': 'Brady','day': 'monday', 'time': '6 AM', 'location': 'anytime fitness'};
+var chonson = {'name': 'Chonson', 'day': 'tuesday', 'time': '6 AM', 'location': 'anytime fitness'};
+var jabroni = {'name': 'Jabroni', 'day': 'tuesday', 'time': '6 AM', 'location': 'anytime fitness'};
+var users = [jose, brady, chonson, jabroni];
 
-var joe = {'day': 'tuesday', 'time': '6 AM', 'location': 'anytime fitness'};
-var brady = {'day': 'monday', 'time': '6 AM', 'location': 'anytime fitness'};
-var users = [joe, brady];
-
-console.log(users);
-console.log(matchMaker(joe, brady));
+// console.log(users);
+console.log(matchMaker(brady, users));
 
 //Change params to (meathead, userList)
 //Rotate list so meathead is at userList[0]
