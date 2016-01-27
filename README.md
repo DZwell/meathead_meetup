@@ -20,10 +20,10 @@ In Meathead Meet-up's current version, requests can only be done via the backend
 
 Using `superagent cli` and the command line:
 
-`superagent localhost:3000/api/meatheads post '{"username":"buffdude471"}'`
+`superagent localhost:3000/api/users post '{"username":"buffdude471"}'`
 
 #####For put/delete
 
 Once again using `superagent cli` and the command line:
 
-`superagent localhost:3000/api/meatheads/<UNIQUE MONGO ID> delete`
+`superagent localhost:3000/api/users/<UNIQUE MONGO ID> delete`
