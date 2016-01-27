@@ -26,10 +26,5 @@ var chonson = {0: 'Chonson', 1: 'tuesday', 2: '5 AM', 3: 'anytime fitness'};
 var jabroni = {0: 'Jabroni', 1: 'tuesday', 2: '5 AM', 3: 'anytime fitness'};
 var users = [jose, brady, chonson, jabroni];
 
-console.log(matchMaker(jose, users));
-
-//Change params to (meathead, userList)
-//Rotate list so meathead is at userList[0]
-//Start comparison from userList[1]
-//Push like users to new array and return new array
+// console.log(matchMaker(jose, users));
 
