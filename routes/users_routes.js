@@ -20,7 +20,7 @@ usersRouter.post('/users', function(req, res) {
   newUser.save(function(err, data) {
     if (err) return handleError(err, res);
 
-    res.json({success: true}, data);
+    res.json({success: true});
   });
 });
 

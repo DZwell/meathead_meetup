@@ -9,8 +9,6 @@ $(function() {
       password: $('#sign-up-form-password').val()
     };
 
-    console.log(formData);
-
     $.ajax({
       type: 'POST',
       url: '/api/users',
@@ -19,7 +17,7 @@ $(function() {
         if (res.success) {
           console.log('success');
         } else {
-          console.log(res);
+          console.log('fail' + res);
         }
       }
     });
