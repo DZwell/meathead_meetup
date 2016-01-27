@@ -114,11 +114,44 @@
 
             <div class="uk-width-medium-3-4 uk-container-center" style="margin-top: 100px;">
               <h2 class="uk-h1 uk-margin-large-bottom">Find yourself a spotter.</h2>
-              <form class="uk-form">
-                <input type="text" placeholder="Username">
-                <input type="password" placeholder="Password">
-                <button class="uk-button">Sign up for Free</button>
-              </form>
+
+
+              <!-- Form -->
+              <div class="uk-width-large-1-2 uk-container-center">
+                <form class="uk-form uk-form-stacked" action="/user/authenticate" method="post">
+                  <div class="uk-form-row">
+                    <input class="uk-width-1-1" type="text" name="credentials[name]" value="" placeholder="Name" required autofocus>
+                  </div>
+                  <div class="uk-form-row">
+                    <input class="uk-width-1-1" type="text" name="credentials[username]" value="" placeholder="Username" required autofocus>
+                  </div>
+                  <div class="uk-form-row">
+                    <input class="uk-width-1-1" type="text" name="credentials[email]" value="" placeholder="name@domain.com" required autofocus>
+                  </div>
+
+                  <div class="uk-form-row">
+                    <input class="uk-width-1-2" style="max-width: 49.28%;" type="password" name="credentials[password]" value="" placeholder="••••••••" required>
+                    <input class="uk-width-1-2" style="max-width: 49.28%;" type="password" name="credentials[password]" value="" placeholder="••••••••" required>
+                  </div>
+
+                  <p class="uk-form-row uk-margin-small-bottom">
+                    <button class="uk-button uk-button-primary uk-button-large uk-width-1-1" type="submit">Sign up</button>
+                  </p>
+                  <ul class="uk-list uk-flex uk-flex-space-between uk-text-small uk-margin-bottom-remove">
+                    <li>
+                      <label><input type="checkbox" name="remember_me"> Remember Me</label>
+                    </li>
+                    <li class="uk-text-right">
+                      <a class="uk-link" href="/user/resetpassword">Request Password</a>
+                    </li>
+                  </ul>
+                  <input type="hidden" name="redirect" value="">
+                  <input type="hidden" name="_csrf" value="a4841e50637661ba71e6b6ed9b223b5a2ed21276">
+                </form>
+              </div>
+              <!-- Form end -->
+
+
             </div>
 
           </article>
