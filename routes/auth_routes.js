@@ -19,7 +19,7 @@ authRouter.post('/sign-up', jsonParser, function(req, res) {
     // check if username is unique
     if (err) return handleError(err, res);
 
-    res.json({msg: 'User created'});
+    res.json({success: true, msg: 'User created'});
   });
 });
 

@@ -1,5 +1,8 @@
 ###Meathead Meet-up
 
+####Bug-fixes
+* Failure console log on successful creation
+
 ####How to start
 
 First, create a database directory.
