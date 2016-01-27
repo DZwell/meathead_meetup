@@ -21,12 +21,38 @@
           <div class="uk-panel  uk-text-center uk-contrast">
             <h1 class="uk-heading-large uk-margin-large-bottom"><i class="fa fa-slideshare"></i>Meethead Meet-Up</h1>
             <h2>The easiest way to find a workout partner.</h2>
+
+            <!-- Sign-in form -->
             <div class="uk-width-large-1-1 uk-container-center">
-              <form class="uk-form">
-                <input type="text" id="sign-up-form-username" placeholder="Username">
-                <input type="password" id="sign-up-form-password" placeholder="Password">
-                <button class="uk-button" id="sign-up-form-submit">Sign up for Free</button>
-              </form>
+              <div class="uk-width-large-1-2 uk-container-center">
+                <form class="uk-form uk-form-stacked" action="/user/authenticate" method="post">
+
+                  <div class="uk-form-row">
+                    <input class="uk-width-1-1" id="sign-in-form-username" type="text" name="credentials[username]" value="" placeholder="Username" required autofocus>
+                  </div>
+
+                  <div class="uk-form-row">
+                    <input class="uk-width-1-1" id="sign-in-form-password" type="password" name="credentials[password]" value="" placeholder="••••••••" required>
+                  </div>
+
+                  <p class="uk-form-row uk-margin-small-bottom">
+                    <button class="uk-button uk-button-primary uk-button-medium uk-width-1-2" id="sign-in-form-submit" style="max-width: 49.2%;" type="submit">Sign in</button>
+                    <a class="uk-button uk-button-primary uk-button-medium uk-width-1-2" style="max-width: 49.2%;" href="#sign-up-form" type="submit">Sign up</a>
+                  </p>
+
+                  <ul class="uk-list uk-flex uk-flex-space-between uk-text-small uk-margin-bottom-remove">
+                    <li>
+                      <label><input type="checkbox" name="remember_me"> Remember Me</label>
+                    </li>
+                    <li class="uk-text-right">
+                      <a class="uk-link" href="/user/resetpassword">Request Password</a>
+                    </li>
+                  </ul>
+                  <input type="hidden" name="redirect" value="">
+                  <input type="hidden" name="_csrf" value="a4841e50637661ba71e6b6ed9b223b5a2ed21276">
+                </form>
+              </div>
+
             </div>
             <a class="uk-button uk-button-large" href="#about" style="margin-top: 50px;">Learn more</a>
           </div>
@@ -112,30 +138,29 @@
               </div>
             </div>
 
-            <div class="uk-width-medium-3-4 uk-container-center" style="margin-top: 100px;">
+            <div class="uk-width-medium-3-4 uk-container-center" id="sign-up-form" style="margin-top: 100px;">
               <h2 class="uk-h1 uk-margin-large-bottom">Find yourself a spotter.</h2>
 
-
-              <!-- Form -->
+              <!-- Sign-up form -->
               <div class="uk-width-large-1-2 uk-container-center">
                 <form class="uk-form uk-form-stacked" action="/user/authenticate" method="post">
                   <div class="uk-form-row">
-                    <input class="uk-width-1-1" type="text" name="credentials[name]" value="" placeholder="Name" required autofocus>
+                    <input class="uk-width-1-1" id="sign-up-form-name" type="text" name="credentials[name]" placeholder="Name" required autofocus>
                   </div>
                   <div class="uk-form-row">
-                    <input class="uk-width-1-1" type="text" name="credentials[username]" value="" placeholder="Username" required autofocus>
+                    <input class="uk-width-1-1" id="sign-up-form-username" type="text" name="credentials[username]" placeholder="Username" required autofocus>
                   </div>
                   <div class="uk-form-row">
-                    <input class="uk-width-1-1" type="text" name="credentials[email]" value="" placeholder="name@domain.com" required autofocus>
+                    <input class="uk-width-1-1" id="sign-up-form-email" type="text" name="credentials[email]" placeholder="name@domain.com" required autofocus>
                   </div>
 
                   <div class="uk-form-row">
-                    <input class="uk-width-1-2" style="max-width: 49.28%;" type="password" name="credentials[password]" value="" placeholder="••••••••" required>
+                    <input class="uk-width-1-2" id="sign-up-form-password" style="max-width: 49.28%;" type="password" name="credentials[password]" value="" placeholder="••••••••" required>
                     <input class="uk-width-1-2" style="max-width: 49.28%;" type="password" name="credentials[password]" value="" placeholder="••••••••" required>
                   </div>
 
                   <p class="uk-form-row uk-margin-small-bottom">
-                    <button class="uk-button uk-button-primary uk-button-large uk-width-1-1" type="submit">Sign up</button>
+                    <button class="uk-button uk-button-primary uk-button-large uk-width-1-1" id="sign-up-form-submit" type="submit">Sign up</button>
                   </p>
                   <ul class="uk-list uk-flex uk-flex-space-between uk-text-small uk-margin-bottom-remove">
                     <li>
@@ -150,10 +175,7 @@
                 </form>
               </div>
               <!-- Form end -->
-
-
             </div>
-
           </article>
         </main>
       </div>

@@ -5,7 +5,9 @@ $(function() {
     e.preventDefault();
 
     var formData = {
+      name: $('#sign-up-form-name').val(),
       username: $('#sign-up-form-username').val(),
+      email: $('#sign-up-form-email').val(),
       password: $('#sign-up-form-password').val()
     };
 
