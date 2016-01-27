@@ -4,8 +4,9 @@
   "description": "Meet meatheads for meeting up for the gyms",
   "main": "server.js",
   "dependencies": {
-    "bcrypt": "^0.8.5",
+    "bcrypt": "latest",
     "body-parser": "^1.14.2",
+    "eat": "^0.1.1",
     "express": "^4.13.4",
     "gulp": "^3.9.0",
     "gulp-concat-css": "^2.2.0",

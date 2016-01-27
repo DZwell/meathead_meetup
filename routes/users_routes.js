@@ -15,15 +15,6 @@ usersRouter.get('/users', function(req, res) {
   });
 });
 
-usersRouter.post('/users', function(req, res) {
-  var newUser = new User(req.body);
-  newUser.save(function(err, data) {
-    if (err) return handleError(err, res);
-
-    res.json({success: true});
-  });
-});
-
 usersRouter.put('/users/:id', bodyParser.json(), function(req, res) {
   var userData = req.body;
   delete userData._id;
