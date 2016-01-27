@@ -9,8 +9,10 @@ var authRouter = module.exports = exports = express.Router();
 
 authRouter.post('/sign-up', jsonParser, function(req, res) {
   var user = new User();
-  user.auth.basic.username = req.body.username;
+  user.name = req.body.name;
   user.username = req.body.username;
+  user.email = req.body.email;
+  user.auth.basic.username = req.body.username;
   user.hashPassword(req.body.password);
 
   user.save(function(err, data) {

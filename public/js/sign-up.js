@@ -17,7 +17,7 @@ $(function() {
 
     $.ajax({
       type: 'POST',
-      url: '/api/users',
+      url: '/api/sign-up',
       data: formData,
       success: function(res) {
         if (res.success) {

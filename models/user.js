@@ -5,32 +5,28 @@ var bcrypt = require('bcrypt');
 var eat = require('eat');
 
 var userSchema = new mongoose.Schema({
-  auth: { // auth main object just used to delete auth object
-    basic: {
-      username: String,
-      password: String
-    }
+  name: {
+    type: String,
+    required: true
   },
-
-  // ,
-
-  // name: {
-  //   type: String,
-  //   required: true
-  // },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true
+  },
   username: {
     type: String,
     required: true,
     unique: true,
     trim: true
+  },
+  auth: { // auth main object just used to delete auth object
+    basic: {
+      username: String,
+      password: String
+    }
   }
-  // ,
-  // email: {
-  //   type: String,
-  //   required: true,
-  //   unique: true,
-  //   trim: true
-  // }
 });
 
 userSchema.methods.hashPassword = function(password) {
