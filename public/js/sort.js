@@ -1,6 +1,6 @@
 
 
-function matchMaker(meatHead1, meatHead2) {
+function matchMaker(meatHead, userList) {
     if (JSON.stringify(meatHead1) === JSON.stringify(meatHead2)) {
         console.log('We found a match!');
         return '';
