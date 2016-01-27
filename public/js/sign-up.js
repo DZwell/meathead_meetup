@@ -11,6 +11,10 @@ $(function() {
       password: $('#sign-up-form-password').val()
     };
 
+    var passConfirmation = $('#sign-up-form-password-check').val();
+
+    validateForm(formData, passConfirmation);
+
     $.ajax({
       type: 'POST',
       url: '/api/users',
