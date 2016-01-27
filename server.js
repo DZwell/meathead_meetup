@@ -3,14 +3,18 @@
 var mongoose = require('mongoose');
 var express = require('express');
 var app = express();
-var meatheadsRouter = require(__dirname + '/routes/meathead_routes');
+var usersRouter = require(__dirname + '/routes/users_routes');
+var bodyParser = require('body-parser');
 
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/meathead_dev');
 app.set('port', (process.env.PORT || 3000));
 
 app.use(express.static(__dirname + '/public/'));
 
-app.use('/api', meatheadsRouter);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+app.use('/api/', usersRouter);
 
 app.listen(app.get('port'), function() {
   console.log('Listening at ' + app.get('port') + '.');
