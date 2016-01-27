@@ -1,22 +1,32 @@
 function matchMaker(meatHead, userList) {
+    var likeUsers = [];
     //Shifts array so meatHead is at index 0
     while (userList.indexOf(meatHead) != 0) {
         userList.unshift(userList.pop());
+    };
+    for (var i = 1; i < userList.length; i++) {
+        var likenessCounter = 0;
+        var j = 1;
+        while (j <= 3) {
+            if (userList[0][j] == userList[i][j]) {
+                likenessCounter++;
+            }
+            j++;
+        }
+        if (likenessCounter === 3) {
+            likeUsers.push(userList[i]);
+        }
     }
-    console.log(userList);
-    // for (i in userList) {
-    //     if(meathead )
-    // }
-}
+    return likeUsers;
+};
 
-var jose = {'name': 'Jose', 'day': 'tuesday', 'time': '6 AM', 'location': 'anytime fitness'};
-var brady = {'name': 'Brady','day': 'monday', 'time': '6 AM', 'location': 'anytime fitness'};
-var chonson = {'name': 'Chonson', 'day': 'tuesday', 'time': '6 AM', 'location': 'anytime fitness'};
-var jabroni = {'name': 'Jabroni', 'day': 'tuesday', 'time': '6 AM', 'location': 'anytime fitness'};
+var jose = {0: 'Jose', 1: 'tuesday', 2: '3 AM', 3: 'anytime fitness'};
+var brady = {0: 'Brady',1: 'tuesday', 2: '3 AM', 3: 'anytime fitness'};
+var chonson = {0: 'Chonson', 1: 'tuesday', 2: '5 AM', 3: 'anytime fitness'};
+var jabroni = {0: 'Jabroni', 1: 'tuesday', 2: '5 AM', 3: 'anytime fitness'};
 var users = [jose, brady, chonson, jabroni];
 
-// console.log(users);
-console.log(matchMaker(brady, users));
+console.log(matchMaker(jose, users));
 
 //Change params to (meathead, userList)
 //Rotate list so meathead is at userList[0]
