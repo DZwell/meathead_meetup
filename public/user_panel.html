@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,12 +6,21 @@
 </head>
 <body>
     <form>
-        Day of the Week
-        <input type="text" name="day" placeholder="Day of the Week"><br>
-        Time
-        <select id="time"></select>
+        Name:
+        <input class="properties" id="userName" type="text" name="userName" placeholder="Name"><br>
+        Day of the Week:
+        <input class="properties" id="day" type="text" name="day" placeholder="Day of the Week"><br>
+        Time:
+        <input class="properties" id="times" type="text" name="time" placeholder="Times"><br>
+        Gym:
+        <input class="properties" id="gym" type="text" name="gym" placeholder="Gym"><br>
+        Muscle Group:
+        <input class="properties" id="muscle" type="text" name="muscleGroup" placeholder="muscles"><br>
+        <button type="submit">Submit</button><br>
+        <button id="matchMaker">Find likeminded Meatheads</button>
     </form>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script type="text/javascript" src="js/sort.js"></script>
+<script type="text/javascript" src="js/events.js"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+
 function matchMaker(meatHead, userList) {
     var likeUsers = [];
     //Shifts array so meatHead is at index 0
@@ -20,33 +21,10 @@ function matchMaker(meatHead, userList) {
     return likeUsers;
 };
 
-var MeatHead = function(properties) {
-    this.userName = properties[0];
-    this.days = properties[1];
-    this.times = properties[2];
-    this.gym = properties[3];
-    this.muscleGroup = properties[4];
-};
+var jose = {0: 'Jose', 1: 'tuesday', 2: '3 AM', 3: 'anytime fitness', 4: 'legs'};
+var brady = {0: 'Brady',1: 'tuesday', 2: '3 AM', 3: 'anytime fitness', 4: 'legs'};
+var chonson = {0: 'Chonson', 1: 'tuesday', 2: '5 AM', 3: 'anytime fitness', 4: 'legs'};
+var jabroni = {0: 'Jabroni', 1: 'tuesday', 2: '5 AM', 3: 'anytime fitness', 4: 'legs'};
+var users = [jose, brady, chonson, jabroni];
 
-
-
-
-
-
-var dom = new MeatHead({0: 'Dom', 1: 'wednesday', 2: '5 PM', 3: 'anytime fitness', 4: 'pecs'});
-var jose = new MeatHead({0: 'Jose', 1: 'tuesday', 2: '3 AM', 3: 'anytime fitness', 4: 'arms'});
-var brady = new MeatHead({0: 'Brady',1: 'tuesday', 2: '2 AM', 3: 'anytime fitness', 4: 'arms'});
-var chonson = new MeatHead({0: 'Chonson', 1: 'tuesday', 2: '3 AM', 3: 'anytime fitness', 4: 'arms'});
-var jabroni = new MeatHead({0: 'Jabroni', 1: 'tuesday', 2: '5 AM', 3: 'anytime fitness', 4: 'arms'});
-
-var users = [];
-
-users.push(dom);
-users.push(jose);
-users.push(brady);
-users.push(chonson);
-users.push(jabroni);
-
-
-console.log(matchMaker(jose, users));
-
+// console.log(matchMaker(jose, users));
