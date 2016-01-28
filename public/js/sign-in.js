@@ -9,7 +9,7 @@ $(function() {
 
     $.ajax({
       type: 'GET',
-      url: '/api/users',
+      url: '/api/sign-in',
       beforeSend: function(xhr) {
         xhr.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' +password));
       },
