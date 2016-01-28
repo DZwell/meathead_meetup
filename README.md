@@ -13,3 +13,7 @@ Next, run `npm install`.
 Start the mongo server with `mongod --dbpath=./db --smallfiles`, and then the express server with `node server.js`.
 
 Finally, head to `localhost:3000` to use the app.
+
+####Testing Auth
+
+`superagent localhost:3000/api/sign-in -u <USERNAME>:<PASSWORD>`
