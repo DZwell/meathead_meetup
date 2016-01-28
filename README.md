@@ -1,5 +1,7 @@
 ###Meathead Meet-up
 
+####Bug-fixes
+
 ####How to start
 
 First, create a database directory.
@@ -11,19 +13,3 @@ Next, run `npm install`.
 Start the mongo server with `mongod --dbpath=./db --smallfiles`, and then the express server with `node server.js`.
 
 Finally, head to `localhost:3000` to use the app.
-
-####Performing get/post/put/delete
-
-In Meathead Meet-up's current version, requests can only be done via the backend.
-
-#####For get/post
-
-Using `superagent cli` and the command line:
-
-`superagent localhost:3000/api/meatheads post '{"username":"buffdude471"}'`
-
-#####For put/delete
-
-Once again using `superagent cli` and the command line:
-
-`superagent localhost:3000/api/meatheads/<UNIQUE MONGO ID> delete`
