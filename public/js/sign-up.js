@@ -64,7 +64,7 @@ $(function() {
       data: formData,
       success: function(res) {
         if (res.success) {
-          console.log('success');
+          $('#sign-up-success').html('Success!');
         } else {
           console.log('fail' + res);
         }
