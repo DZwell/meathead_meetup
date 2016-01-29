@@ -1,10 +1,6 @@
-
-function matchMaker(meatHead, userList) {
+function matchMaker(userList) {
     var likeUsers = [];
-    //Shifts array so meatHead is at index 0
-    while (userList.indexOf(meatHead) != 0) {
-        userList.unshift(userList.pop());
-    };
+    userList.unshift(userList.pop());
     for (var i = 1; i < userList.length; i++) {
         var likenessCounter = 0;
         var j = 1;
@@ -27,4 +23,5 @@ var chonson = {0: 'Chonson', 1: 'tuesday', 2: '5 AM', 3: 'anytime fitness', 4: '
 var jabroni = {0: 'Jabroni', 1: 'tuesday', 2: '5 AM', 3: 'anytime fitness', 4: 'legs'};
 var users = [jose, brady, chonson, jabroni];
 
-// console.log(matchMaker(jose, users));
+
+

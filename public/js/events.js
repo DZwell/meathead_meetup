@@ -1,5 +1,5 @@
 $(function(){
-    $('button').click('submit', function(event) {
+    $('#submit').click('submit', function(event) {
         event.preventDefault();
 
         var newUser = {
@@ -26,6 +26,7 @@ $(function(){
     }); //event
 
     $('#matchMaker').click(function(event) {
-        console.log(matchMaker($('#userName').val(), users));
+        event.preventDefault();
+        console.log(matchMaker(users));
     });
 }); //jquery
