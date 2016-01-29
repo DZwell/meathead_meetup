@@ -23,5 +23,8 @@ var chonson = {0: 'Chonson', 1: 'tuesday', 2: '5 AM', 3: 'anytime fitness', 4: '
 var jabroni = {0: 'Jabroni', 1: 'tuesday', 2: '5 AM', 3: 'anytime fitness', 4: 'legs'};
 var users = [jose, brady, chonson, jabroni];
 
-
+// Remove user from [users]
+// Put into its own array
+// Compare that with every entry in [users]
+// Put user back into [users] after search
 
