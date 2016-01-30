@@ -24,7 +24,7 @@ authRouter.post('/sign-up', jsonParser, function(req, res) {
     user.generateToken(function(err, token) {
       if (err) return handleError(err, res);
 
-      res.json({success: true, msg: 'A new user has been created.',token: token});
+      res.json({success: true, msg: 'Success!  Please login above.',token: token});
     });
   });
 });
@@ -40,7 +40,7 @@ authRouter.get('/sign-in', basicHttp, function(req, res) {
     }
 
     user.generateToken(function(err, token) {
-      res.json({token: token});
+      res.json({token: token, msg: 'Sign-in successful!'});
    });
   });
 });
