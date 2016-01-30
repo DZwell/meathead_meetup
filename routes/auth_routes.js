@@ -6,6 +6,7 @@ var handleError = require(__dirname + '/../lib/handle_error');
 var basicHttp = require(__dirname + '/../lib/basic_http_authentication');
 var basicError = require(__dirname + '/../lib/handle_auth_error');
 var User = require(__dirname + '/../models/user');
+var eatAuth = require(__dirname + '/../lib/eat_auth');
 
 var authRouter = module.exports = exports = express.Router();
 
@@ -18,10 +19,13 @@ authRouter.post('/sign-up', jsonParser, function(req, res) {
   user.hashPassword(req.body.password);
 
   user.save(function(err, data) {
-    // check if username is unique
     if (err) return handleError(err, res);
 
-    res.json({success: true, msg: 'User created'});
+    user.generateToken(function(err, token) {
+      if (err) return handleError(err, res);
+
+      res.json({token: token});
+    });
   });
 });
 
@@ -31,10 +35,24 @@ authRouter.get('/sign-in', basicHttp, function(req, res) {
   }
 
   User.findOne({'auth.basic.username': req.auth.username}, function(err, user) {
-    if (err || !user || !user.checkPassword(req.auth.password)) {
+    if (err) {
       basicError();
     }
 
-    res.json({msg: 'Authentication success.'});
+    if (!user) {
+      basicError();
+    }
+
+    if (!user.checkPassword(req.auth.password)) {
+      basicError();
+    }
+
+    user.generateToken(function(err, token) {
+      res.json({token: token});
+   });
   });
+});
+
+authRouter.get('/users', eatAuth, function(req, res) {
+  res.json({username: req.user.username});
 });
