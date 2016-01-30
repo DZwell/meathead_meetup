@@ -24,7 +24,7 @@ authRouter.post('/sign-up', jsonParser, function(req, res) {
     user.generateToken(function(err, token) {
       if (err) return handleError(err, res);
 
-      res.json({token: token});
+      res.json({success: true, msg: 'A new user has been created.',token: token});
     });
   });
 });
