@@ -24,7 +24,7 @@ authRouter.post('/sign-up', jsonParser, function(req, res) {
     user.generateToken(function(err, token) {
       if (err) return handleError(err, res);
 
-      res.json({token: token});
+      res.json({success: true, msg: 'A new user has been created.',token: token});
     });
   });
 });
@@ -35,15 +35,7 @@ authRouter.get('/sign-in', basicHttp, function(req, res) {
   }
 
   User.findOne({'auth.basic.username': req.auth.username}, function(err, user) {
-    if (err) {
-      basicError();
-    }
-
-    if (!user) {
-      basicError();
-    }
-
-    if (!user.checkPassword(req.auth.password)) {
+    if (err || !user || !user.checkPassword(req.auth.password)) {
       basicError();
     }
 
