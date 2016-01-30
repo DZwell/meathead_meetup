@@ -35,15 +35,7 @@ authRouter.get('/sign-in', basicHttp, function(req, res) {
   }
 
   User.findOne({'auth.basic.username': req.auth.username}, function(err, user) {
-    if (err) {
-      basicError();
-    }
-
-    if (!user) {
-      basicError();
-    }
-
-    if (!user.checkPassword(req.auth.password)) {
+    if (err || !user || !user.checkPassword(req.auth.password)) {
       basicError();
     }
 

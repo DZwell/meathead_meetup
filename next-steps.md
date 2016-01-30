@@ -7,6 +7,7 @@
 
 ####Test-Panel
 1.  Show user info
-2.  Decide on framework
+2.  Start Angular
+3.
 
 ####User-Panel
