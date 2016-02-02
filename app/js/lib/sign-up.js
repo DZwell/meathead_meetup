@@ -64,9 +64,9 @@ $(function() {
       data: formData,
       success: function(res) {
         if (res.success) {
-          $('#sign-up-success').html('Success!');
+          $('#sign-up-success').html(res.msg);
         } else {
-          console.log('fail' + res);
+          $('#sign-up-error').html(res.msg);
         }
       }
     });

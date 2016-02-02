@@ -21,7 +21,7 @@ var userSchema = new mongoose.Schema({
     unique: true,
     trim: true
   },
-  auth: { // auth main object just used to delete auth object
+  auth: {
     basic: {
       username: String,
       password: String
@@ -36,6 +36,11 @@ userSchema.methods.hashPassword = function(password) {
 
 userSchema.methods.checkPassword = function(password) {
   return bcrypt.compareSync(password, this.auth.basic.password);
+};
+
+userSchema.methods.generateToken = function(callback) {
+  var id = this._id;
+  eat.encode({id: id}, process.env.APP_SECRET, callback);
 };
 
 module.exports = mongoose.model('User', userSchema);
