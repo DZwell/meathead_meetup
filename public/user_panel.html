@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <ttle>MeatHead Meetup</title>
+    <title>MeatHead Meetup</title>
     <link rel="stylesheet" type="text/css" href="css/user_panel.css">
 </head>
 <body>
@@ -14,20 +14,27 @@
             <input class="properties" id="day" type="text" name="day" placeholder="Day of the Week"><br>
             Time:
             <input class="properties" id="times" type="text" name="time" placeholder="Times"><br>
-            Gym:
-            <input class="properties" id="gym" type="text" name="gym" placeholder="Gym"><br>
+            Area:
+            <select class="properties" id="area" type="text" name="area" placeholder="Area" required>
+                <option value="default">Select an Area</option>
+                <option value="west">West Seattle</option>
+                <option value="central">Central Seattle</option>
+                <option value="south">South Seattle</option>
+                <option value="north">North Seattle</option>
+            </select>
+            <br>
             Muscle Group:
             <input class="properties" id="muscle" type="text" name="muscleGroup" placeholder="muscles"><br>
             <button id="submit" type="submit">Submit</button><br>
             <button id="matchMaker">Find likeminded Meatheads</button>
         </form>
     </div>
-
     <div id="map"></div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<script type="text/javascript" src="js/sort.js"></script>
-<script type="text/javascript" src="js/events.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1j-GHVkBSNe2evr1j6lhZworXFsUwubA&callback=initMap"></script>
-<script type="text/javascript" src="js/maps.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/mapCoords.js"></script>
+    <script type="text/javascript" src="js/sort.js"></script>
+    <script type="text/javascript" src="js/maps.js"></script>
+    <script type="text/javascript" src="js/events.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1j-GHVkBSNe2evr1j6lhZworXFsUwubA&callback=initMap"></script>
 </body>
 </html>
