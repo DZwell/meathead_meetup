@@ -12,7 +12,7 @@ mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/meathead_dev')
 
 app.set('port', (process.env.PORT || 3000));
 
-app.use(express.static(__dirname + '/app/'));
+app.use(express.static(__dirname + '/build/'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
