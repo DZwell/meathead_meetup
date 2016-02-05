@@ -1,3 +1,12 @@
+'use strict';
+
+var west = '47.566789, -122.386695';
+var north = '47.795540, -122.308983';
+var central = '47.609307, -122.335581';
+var south = '47.530853, -122.270520';
+
+neighborhoods = [west, central, south, north];
+
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 8,
@@ -13,19 +22,15 @@ function initMap() {
 }
 
 function geocodeLatLng(geocoder, map, infowindow) {
-  var dropDown = document.getElementById('area');
-  var input = dropDown.options;[dropDown.selectedIndex].value;
-  console.log(input);
+  var $dropDown = $('#area');
+  console.log($dropDown);
+  var input = dropDown.options[dropDown.selectedIndex].value;
   for (key in neighborhoods) {
     if (input == key) {
-        console.log(key);
         var latlngStr = neighborhoods[key];
-        console.log(latlngStr);
     }
   };
-  console.log(latlngStr)
   var latlngStr = input.split(',', 2);
-  console.log(latlngStr);
   var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
   geocoder.geocode({'location': latlng}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {

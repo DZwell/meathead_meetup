@@ -1,3 +1,5 @@
+'use strict';
+
 $(function(){
 
     $('#submit').click('submit', function(event) {
@@ -13,7 +15,6 @@ $(function(){
         };
         users.push(newUser);
         $('.properties').val('');
-        console.log(users);
 
 
 

@@ -1,3 +1,5 @@
+'use strict';
+
 function matchMaker(userList) {
     var likeUsers = [];
     userList.unshift(userList.pop());
@@ -13,6 +15,9 @@ function matchMaker(userList) {
         if (likenessCounter === 4) {
             likeUsers.push(userList[i]);
         }
+        else {
+            return 'Sorry, there are no matches, bro.';
+        }
     }
     return likeUsers;
 };
@@ -21,7 +26,7 @@ var jose = {0: 'Jose', 1: 'tuesday', 2: '3 AM', 3: 'anytime fitness', 4: 'legs'}
 var brady = {0: 'Brady',1: 'tuesday', 2: '3 AM', 3: 'anytime fitness', 4: 'legs'};
 var chonson = {0: 'Chonson', 1: 'tuesday', 2: '5 AM', 3: 'anytime fitness', 4: 'legs'};
 var jabroni = {0: 'Jabroni', 1: 'tuesday', 2: '5 AM', 3: 'anytime fitness', 4: 'legs'};
-var users = [jose, brady, chonson, jabroni];
+window.users = [jose, brady, chonson, jabroni];
 
 // Remove user from [users]. Possibly on login?
 // Put into its own array
