@@ -20,10 +20,20 @@ var userCssFiles = [
   'app/css/user_panel.css'
 ];
 
+var danielFiles = [
+  'app/js/sort.js.js',
+  'app/js/events.js',
+  'app/js/maps.js',
+];
 
 gulp.task('static:dev', function() {
   gulp.src(staticFiles)
   .pipe(gulp.dest('build/'));
+});
+
+gulp.task('daniel:dev', function() {
+  gulp.src(danielFiles)
+  .pipe(gulp.dest('build/js/'));
 });
 
 gulp.task('home-css:dev', function(){
