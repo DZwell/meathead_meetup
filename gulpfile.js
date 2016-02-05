@@ -6,14 +6,15 @@ var cssnano = require('gulp-cssnano');
 var concatCss = require('gulp-concat-css');
 
 var staticFiles = [
-    'app/**/*.html',
-    'app/**/*.jpg',
-    'app/**/*.png'
+  'app/**/*.html',
+  'app/**/*.jpg',
+  'app/**/*.png',
+  'app/**/*.ico'
 ];
 
 var homeCssFiles = [
-    'app/css/theme.css',
-    'app/css/style.css'
+  'app/css/theme.css',
+  'app/css/style.css'
 ];
 
 var userCssFiles = [
@@ -21,9 +22,9 @@ var userCssFiles = [
 ];
 
 var danielFiles = [
-  'app/js/sort.js.js',
-  'app/js/events.js',
-  'app/js/maps.js',
+  'app/js/lib/sort.js',
+  'app/js/lib/events.js',
+  'app/js/lib/maps.js'
 ];
 
 gulp.task('static:dev', function() {
@@ -71,5 +72,5 @@ gulp.task('watch:check', function() {
   gulp.watch(appFiles, ['mocha'])
 })
 
-gulp.task('build', ['webpack:dev', 'static:dev', 'home-css:dev', 'user-css:dev']);
+gulp.task('build', ['webpack:dev', 'static:dev', 'home-css:dev', 'user-css:dev', 'daniel:dev']);
 gulp.task('default', ['watch:build']);

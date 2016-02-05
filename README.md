@@ -10,6 +10,8 @@ Next, run `npm install`.
 
 Start the mongo server with `mongod --dbpath=./db --smallfiles`, and then the express server with `node server.js`.
 
+If new user panel JS files need to be added, add them to `danield:dev` task in `gulpfile.js`.
+
 Finally, head to `localhost:3000` to use the app.
 
 #####Creating users
