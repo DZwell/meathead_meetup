@@ -60,7 +60,7 @@ $(function() {
 
     $.ajax({
       type: 'POST',
-      url: '/api/sign-up',
+      url: '/api/users',
       data: formData,
       success: function(res) {
         if (res.success) {
