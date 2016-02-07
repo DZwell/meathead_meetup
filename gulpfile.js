@@ -21,7 +21,7 @@ var userCssFiles = [
   'app/css/user_panel.css'
 ];
 
-var danielFiles = [
+var userJS = [
   'app/js/lib/sort.js',
   'app/js/lib/events.js',
   'app/js/lib/maps.js'
@@ -43,12 +43,12 @@ gulp.task('static:dev', function() {
   .pipe(gulp.dest('build/'));
 });
 
-gulp.task('daniel:dev', function() {
-  gulp.src(danielFiles)
+gulp.task('user-js:dev', function() {
+  gulp.src(userJS)
   .pipe(gulp.dest('build/js/'));
 });
 
-gulp.task('testJS:dev', function() {
+gulp.task('test-js:dev', function() {
   gulp.src(testJS)
   .pipe(gulp.dest('build/js'));
 });
@@ -88,6 +88,9 @@ gulp.task('watch:build', function() {
   gulp.watch(staticFiles, ['static:dev']);
   gulp.watch(homeCssFiles, ['home-css:dev']); // possible change to something that includes ALL CSS
   gulp.watch(userCssFiles, ['user-css:dev']);
+  gulp.watch(userJS, ['user-js:dev']);
+  gulp.watch(testJS, ['test-js:dev']);
+  gulp.watch(testCssFiles, ['test-css:dev']);
   gulp.watch('app/**/*.js', ['webpack:dev']);
 });
 
@@ -95,5 +98,5 @@ gulp.task('watch:check', function() {
   gulp.watch(appFiles, ['mocha'])
 })
 
-gulp.task('build', ['webpack:dev', 'static:dev', 'home-css:dev', 'user-css:dev', 'test-css:dev', 'testJS:dev', 'daniel:dev']);
+gulp.task('build', ['webpack:dev', 'static:dev', 'home-css:dev', 'user-css:dev', 'test-css:dev', 'test-js:dev', 'user-js:dev']);
 gulp.task('default', ['watch:build']);
