@@ -5,7 +5,7 @@ var north = '47.795540, -122.308983';
 var central = '47.609307, -122.335581';
 var south = '47.530853, -122.270520';
 
-neighborhoods = [west, central, south, north];
+var neighborhoods = [west, central, south, north];
 
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -22,9 +22,10 @@ function initMap() {
 }
 
 function geocodeLatLng(geocoder, map, infowindow) {
-  var $dropDown = $('#area');
-  console.log($dropDown);
-  var input = dropDown.options[dropDown.selectedIndex].value;
+  // var $dropDown = $('#area');
+  // console.log($dropDown);
+  var input = ('#area option:selected').val();
+  console.log(input)
   for (key in neighborhoods) {
     if (input == key) {
         var latlngStr = neighborhoods[key];
