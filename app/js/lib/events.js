@@ -10,11 +10,12 @@ $(function(){
             0: $('#userName').val(),
             1: $('#day').val(),
             2: $('#times').val(),
-            3: $('#area').val(),
+            3: $('#gym').val(),
             4: $('#muscle').val(),
         };
         users.push(newUser);
         // $('.properties').val('');
+        codeAddress();
 
 
 
