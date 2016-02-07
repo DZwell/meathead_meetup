@@ -26,7 +26,7 @@ var jose = {0: 'Jose', 1: 'tuesday', 2: '3 AM', 3: 'anytime fitness', 4: 'legs'}
 var brady = {0: 'Brady',1: 'tuesday', 2: '3 AM', 3: 'anytime fitness', 4: 'legs'};
 var chonson = {0: 'Chonson', 1: 'tuesday', 2: '5 AM', 3: 'anytime fitness', 4: 'legs'};
 var jabroni = {0: 'Jabroni', 1: 'tuesday', 2: '5 AM', 3: 'anytime fitness', 4: 'legs'};
-window.users = [jose, brady, chonson, jabroni];
+var users = [jose, brady, chonson, jabroni];
 
 // Remove user from [users]. Possibly on login?
 // Put into its own array

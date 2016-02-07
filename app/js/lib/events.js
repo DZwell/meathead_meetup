@@ -14,7 +14,7 @@ $(function(){
             4: $('#muscle').val(),
         };
         users.push(newUser);
-        $('.properties').val('');
+        // $('.properties').val('');
 
 
 
