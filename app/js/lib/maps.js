@@ -22,16 +22,20 @@ function initMap() {
 }
 
 function geocodeLatLng(geocoder, map, infowindow) {
-  // var $dropDown = $('#area');
-  // console.log($dropDown);
-  var input = ('#area option:selected').val();
-  console.log(input)
-  for (key in neighborhoods) {
-    if (input == key) {
-        var latlngStr = neighborhoods[key];
+  var input = $('#area option:selected').val();
+    if (input == 'west') {
+        var latlngStr = west;
     }
-  };
-  var latlngStr = input.split(',', 2);
+    else if (input == 'south') {
+      latlngStr = south;
+    }
+    else if (input == 'central') {
+      latlngStr = central;
+    }
+    else if (input == 'north') {
+      latlngStr = north
+    }
+  var latlngStr = latlngStr.split(',', 2);
   var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
   geocoder.geocode({'location': latlng}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
