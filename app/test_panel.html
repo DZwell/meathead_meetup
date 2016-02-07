@@ -16,16 +16,21 @@
   <div class="tm-navbar tm-navbar-overlay" data-uk-sticky='{"media":767,"showup":true,"animation":"uk-animation-slide-top","top":".uk-sticky-placeholder + *","clsinactive":"tm-navbar-transparent"}'>
     <div class="uk-container uk-container-center">
       <nav class="uk-navbar">
-
-        <div class="uk-navbar-flip uk-hidden-small">
           <ul class="uk-navbar-nav">
-            <li class="uk-navbar-brand">
+
+            <!-- Start form implant -->
+            <li class="uk-width-large-1-2 uk-container-left">
+              <form class="uk-form">
+                <input class="uk-width-1-1" id="sign-in-form-username" type="text" name="credentials[username]" value="" placeholder="Username" required autofocus>
+              </form>
             </li>
+            <!-- End form implant -->
+
             <li data-ng-controller="UsersController">
-              <a href="" data-uk-lightbox>Welcome back {{username}}.</a>
+              <a id="user-profile-link" data-uk-lightbox>Welcome back {{username}}.</a>
             </li>
           </ul>
-        </div>
+
 
         <div class="uk-navbar-flip uk-visible-small">
           <a href="#offcanvas" class="uk-navbar-toggle" data-uk-offcanvas></a>
@@ -47,7 +52,7 @@
             <article class="uk-article">
               <div class="uk-width-medium-3-4 uk-container-center">
                 <h3 id="contact" class="uk-text-center uk-h2 uk-contrast">This is where get requests populate</h3>
-                <p class="uk-width-medium-4-6 uk-container-center uk-text-center">This is where get requests populate This is where get requests populate This is where get requests populate This is where get requests populate.</p>
+                <p class="uk-width-medium-4-6 uk-container-center uk-text-center" data-ng-controller="ShowAllUsersController">{{users[0].username}}</p>
               </div>
             </article>
           </div>

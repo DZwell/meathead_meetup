@@ -2,65 +2,66 @@
 
 module.exports = function(app) {
   app.controller('UsersController', ['$scope', '$http', function($scope, $http) {
-    $scope.items = [];
-    $scope.newItem = {};
+    $scope.users = [];
+    $scope.errors = [];
+    $scope.newUser = {};
     $scope.username = 'Chris Harrison';
     $scope.currentContent = {};
 
     $scope.getAll = function() {
       $http.get('/api/users')
-        .then(function(res) {
-          $scope.items = res.data;
-        }, function(err) {
-          console.log(err.data);
-        });
+      .then(function(res) {
+        $scope.users = res.data;
+      }, function(err) {
+        console.log(err.data);
+      });
     };
 
-    $scope.create = function(item) {
-      $http.post('/api/users', item)
-        .then(function(res) {
-          $scope.items.push(res.data);
-          $scope.newItem = {};
-        }, function(err) {
-          console.log(err.data)
-        });
+    $scope.create = function(user) {
+    $http.post('/api/users', user)
+      .then(function(res) {
+        $scope.users.push(res.data);
+        $scope.newUser = {};
+      }, function(err) {
+        console.log(err.data)
+      });
     };
 
-    $scope.update = function(item) {
-      item.editing = false;
+    $scope.update = function(user) {
+      user.editing = false;
 
-      $http.put('/api/users/' + item._id, item)
-        .then(function(res) {
-          console.log('Item changed.');
-        }, function(err) {
-          $scope.errors.push('Could not find list item.');
-        });
+      $http.put('/api/users/' + user._id, user)
+      .then(function(res) {
+        console.log('User edited.');
+      }, function(err) {
+        $scope.errors.push('User not found.');
+      });
     };
 
-    $scope.remove = function(item) {
-      $scope.items.splice($scope.items.indexOf(item), 1);
-      $http.delete('/api/users/' + item._id)
-        .then(function(res) {
-          console.log('Item deleted.');
-        }, function(err) {
-          console.log(err.data);
-          $scope.errors.push('Could not delete list item.');
-          $scope.getAll();
-        });
+    $scope.remove = function(user) {
+      $scope.users.splice($scope.users.indexOf(user), 1);
+      $http.delete('/api/users/' + user._id)
+      .then(function(res) {
+        console.log('User deleted.');
+      }, function(err) {
+        console.log(err.data);
+        $scope.errors.push('Could not delete user.');
+        $scope.getAll();
+      });
     };
 
-    $scope.save = function(item) {
-      item.editing = true;
+    $scope.save = function(user) {
+      user.editing = true;
 
-      $scope.currentContent[item._id] = {content: item.content};
+      $scope.currentContent[user._id] = {content: user.content};
     };
 
-    $scope.reset = function(item) {
-      var tempItem = $scope.currentContent[item._id];
+    $scope.reset = function(user) {
+      var tempUser = $scope.currentContent[user._id];
 
-      $scope.item = angular.copy($scope.master);
-      item.content = tempItem.content;
-      item.editing = false;
+      $scope.user = angular.copy($scope.master);
+      user.content = tempUser.content;
+      user.editing = false;
     };
   }]);
 };
