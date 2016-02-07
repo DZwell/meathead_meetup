@@ -27,6 +27,17 @@ var danielFiles = [
   'app/js/lib/maps.js'
 ];
 
+var testCssFiles = [
+  'app/css/theme.css',
+  'app/css/test-style.css'
+];
+
+var testJS = [
+  'app/js/lib/docs.js',
+  'app/js/lib/uikit.min.js',
+  'app/js/lib/highlight.js'
+];
+
 gulp.task('static:dev', function() {
   gulp.src(staticFiles)
   .pipe(gulp.dest('build/'));
@@ -35,6 +46,11 @@ gulp.task('static:dev', function() {
 gulp.task('daniel:dev', function() {
   gulp.src(danielFiles)
   .pipe(gulp.dest('build/js/'));
+});
+
+gulp.task('testJS:dev', function() {
+  gulp.src(testJS)
+  .pipe(gulp.dest('build/js'));
 });
 
 gulp.task('home-css:dev', function(){
@@ -47,6 +63,13 @@ gulp.task('home-css:dev', function(){
 gulp.task('user-css:dev', function() {
   return gulp.src(userCssFiles)
   .pipe(concatCss('user.css'))
+  .pipe(cssnano())
+  .pipe(gulp.dest('build/css/'));
+});
+
+gulp.task('test-css:dev', function() {
+  return gulp.src(testCssFiles)
+  .pipe(concatCss('test.css'))
   .pipe(cssnano())
   .pipe(gulp.dest('build/css/'));
 });
@@ -72,5 +95,5 @@ gulp.task('watch:check', function() {
   gulp.watch(appFiles, ['mocha'])
 })
 
-gulp.task('build', ['webpack:dev', 'static:dev', 'home-css:dev', 'user-css:dev', 'daniel:dev']);
+gulp.task('build', ['webpack:dev', 'static:dev', 'home-css:dev', 'user-css:dev', 'test-css:dev', 'testJS:dev', 'daniel:dev']);
 gulp.task('default', ['watch:build']);
