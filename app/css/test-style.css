@@ -14,35 +14,3 @@
 .uk-heading-large {
   font-family: 'Montserrat', sans-serif;
 }
-
-/* Footer */
-.uk-icon-medium-logo,
-.uk-icon-soundcloud,
-.uk-icon-twitter,
-.uk-icon-youtube {
-  color: rgba(255,255,255,0.7);
-}
-
-.uk-icon-medium-logo:active,
-.uk-icon-medium-logo:focus,
-.uk-icon-medium-logo:hover {
-  color: #00ab6b;
-}
-
-.uk-icon-soundcloud:active,
-.uk-icon-soundcloud:focus,
-.uk-icon-soundcloud:hover {
-  color: #ff3a00;
-}
-
-.uk-icon-twitter:active,
-.uk-icon-twitter:focus,
-.uk-icon-twitter:hover {
-  color: #00aced;
-}
-
-.uk-icon-youtube:active,
-.uk-icon-youtube:focus,
-.uk-icon-youtube:hover {
-  color: #bb0000;
-}

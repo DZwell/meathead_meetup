@@ -21,6 +21,18 @@ var userSchema = new mongoose.Schema({
     unique: true,
     trim: true
   },
+  biography: {
+    type: String
+  },
+  quote: {
+    type: String
+  },
+  location: {
+    type: String
+  },
+  gym: {
+    type: String
+  },
   auth: {
     basic: {
       username: String,

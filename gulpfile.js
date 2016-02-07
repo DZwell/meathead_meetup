@@ -33,9 +33,7 @@ var testCssFiles = [
 ];
 
 var testJS = [
-  'app/js/lib/docs.js',
-  'app/js/lib/uikit.min.js',
-  'app/js/lib/highlight.js'
+  'app/js/lib/test-map.js'
 ];
 
 gulp.task('static:dev', function() {
