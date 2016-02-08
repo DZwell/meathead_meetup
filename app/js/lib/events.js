@@ -15,7 +15,7 @@ $(function(){
         };
         users.push(newUser);
         // $('.properties').val('');
-        codeAddress();
+        placeFind();
 
 
 
