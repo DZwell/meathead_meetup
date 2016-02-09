@@ -43,16 +43,16 @@
   <!-- Map -->
   <div id="tm-hero" class="tm-hero uk-block uk-block-large uk-cover-background uk-flex uk-flex-middle uk-height-viewport"></div>
 
-  <!-- Contact -->
+  <!-- Lists -->
   <div id="tm-main" class="tm-main uk-block uk-block-secondary">
     <div class="uk-container uk-container-center">
       <div class="uk-grid" data-uk-grid-match data-uk-grid-margin>
-        <main id="portfolio" class="uk-width-1-1">
+        <main id="list" class="uk-width-1-1" data-ng-controller="UsersController">
           <div class="pk-system-messages"></div>
             <article class="uk-article">
               <div class="uk-width-medium-3-4 uk-container-center">
                 <h3 id="contact" class="uk-text-center uk-h2 uk-contrast">This is where get requests populate</h3>
-                <p class="uk-width-medium-4-6 uk-container-center uk-text-center" data-ng-controller="ShowAllUsersController">{{users[0].username}}</p>
+                <div data-user-list-directive></div>
               </div>
             </article>
           </div>
