@@ -10,7 +10,8 @@ var neighborhoods = [west, central, south, north];
 function initMap() {
   var map = new google.maps.Map(document.getElementById('tm-hero'), {
     zoom: 8,
-    center: {lat: 40.731, lng: -73.997}
+    center: {lat: 40.731, lng: -73.997},
+    scrollwheel: false
   });
   var geocoder = new google.maps.Geocoder;
   var infowindow = new google.maps.InfoWindow;

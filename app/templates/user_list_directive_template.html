@@ -1,4 +1,8 @@
-<h3>Potential user listing</h3>
-<ul data-ng-init="getAll()">
-  <li data-ng-repeat="user in users" style="width: 400px;">{{user.username}}<br><i>{{user.biography}}</i></li>
+<ul class="uk-list" style="margin-top: 0;" data-ng-init="getAll()">
+  <div>
+    <li class="hover-color uk-text-right" style="margin-bottom: 10px;padding-left: 5px;" data-ng-repeat="user in users">
+      <h5 class="uk-h5" style="margin-bottom: 0;">{{user.username}}</h5>
+      <span>{{user.biography}}</span>
+    </li>
+  </div>
 </ul>

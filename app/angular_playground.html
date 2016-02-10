@@ -1,9 +1,57 @@
 <head>
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body data-ng-app="MeatheadApp">
   <h1>User Angular Playground</h1>
   <main data-ng-controller="UsersController">
+
+    <div data-ng-init="getAll()">
+      <ul id="errorsList">
+        <li data-ng-repeat="error in errors">{{errors}}
+      </ul>
+
+      <!-- New List User Form -->
+      <form name="newUserForm" data-ng-submit="create(newUser)">
+        <input type="text" id="newUserContent" placeholder="Add a new user" require data-ng-model="newUser.username">
+        <button type="submit" data-ng-disabled="newUserForm.$invalid">
+          <i class="fa fa-plus"></i>
+        </button>
+      </form>
+
+      <!-- Generate User -->
+      <ul id="userList">
+
+        <!-- Start li -->
+        <li data-ng-repeat="user in users">
+          {{user.username}}
+
+          <button data-ng-if="!user.editing" data-ng-click="remove(user)">
+            <i class="fa fa-trash"></i>
+          </button>
+
+          <button data-ng-if="!user.editing" data-ng-click="save(user)">
+            <i class="fa fa-pencil"></i>
+          </button>
+
+          <!-- Make changes to user list -->
+          <form name="userForm{{user._id}}" data-ng-submit="update(user)" data-ng-if="user.editing">
+
+            <label for="userForm{{user._id}}">New Content:</label>
+            <input type="text" id="userForm{{user._id}}" required data-ng-model="user.name">
+
+            <input type="text" required data-ng-model="user.username">
+            <input type="text" required data-ng-model="user.email">
+            <input type="text" required data-ng-model="user.quote">
+            <input type="text" required data-ng-model="user.biography">
+            <button type="submit">OK</button>
+
+            <button ng-click="reset(user)">Cancel</button>
+          </form>
+        </li>
+        <!-- End li -->
+
+      </ul>
+    </div>
 <!--     <h3>List of angular things that need to be finished</h3>
     <ul>
       <li>Populate a user's profile</li>
@@ -28,6 +76,7 @@
       <li>Biography: {{user.biography}}</li>
     </ul> -->
 
+    <div data-fitness-list-directive></div>
     <div data-user-list-directive></div>
   </main>
   <script type="text/javascript" src="js/bundle.js"></script>

@@ -12,6 +12,15 @@ Start the mongo server with `mongod --dbpath=./db --smallfiles`, the gulp tasks 
 
 Finally, head to `localhost:3000` to use the app.
 
-####Bug-fixes
+####To-do
+
+#####Front-end
+* Generate gyms based on searched address (result.name & result.address)
+* When a gym is clicked on, modal should show asking the user if they'd like this to be set as their gym
+* Users populated based on gym selection
+* Top bar search needs to do all map searches
+* Top bar user button needs to display user info modally
+* Bottom panel needs to overlap map
+
+#####Back-end
 * Unique tokens [Watch this video](https://www.youtube.com/watch?v=6JrecqJhv4A&index=28&list=PLZshpIn7Zx06gSq--u7Sl70owX3cahriS)
-*
