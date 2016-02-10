@@ -11,6 +11,16 @@
   color: #525252;
 }
 
+.fitness-list-name {
+  margin-bottom: 0;
+}
+
 .uk-heading-large {
   font-family: 'Montserrat', sans-serif;
+}
+
+.hover-color:active,
+.hover-color:focus,
+.hover-color:hover {
+  background-color: rgba(136, 136, 136, .2);
 }

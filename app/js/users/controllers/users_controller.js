@@ -6,6 +6,13 @@ module.exports = function(app) {
     $scope.errors = [];
     $scope.newUser = {};
     $scope.username = 'Chris Harrison';
+    $scope.gyms = [
+      {name: 'Fitness Edge', address: '1121 SW 41st St.'},
+      {name: 'Bart\'s Fitness Emporium', address: '212 Bonerfield Ave'},
+      {name: 'LA Fitness', address: '3155 California Ave SW'},
+      {name: 'Flowerpower Yoga', address: '11 51st St. SW'},
+      {name: 'Ju Chin\'s Martial Arts', address: '322 SW Alaska St.'}
+    ];
     $scope.currentContent = {};
 
     $scope.getAll = function() {

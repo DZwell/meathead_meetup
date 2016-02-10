@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/test.css" rel="stylesheet">
 </head>
-<body class="tm-background" ng-cloak data-ng-app="MeatheadApp">
+<body class="tm-background" ng-cloak data-ng-app="MeatheadApp" data-ng-controller="UsersController">
 
   <!-- Nav -->
   <div class="tm-navbar tm-navbar-overlay" data-uk-sticky='{"media":767,"showup":true,"animation":"uk-animation-slide-top","top":".uk-sticky-placeholder + *","clsinactive":"tm-navbar-transparent"}'>
@@ -18,19 +18,17 @@
       <nav class="uk-navbar">
           <ul class="uk-navbar-nav">
 
-            <!-- Start form implant -->
-            <li class="uk-width-large-1-2 uk-container-left">
+<!--             <li class="uk-width-large-1-2 uk-container-left">
               <form class="uk-form">
                 <input class="uk-width-1-1" id="sign-in-form-username" type="text" name="credentials[username]" value="" placeholder="Username" required autofocus>
               </form>
-            </li>
-            <!-- End form implant -->
+            </li> -->
 
-            <li data-ng-controller="UsersController">
+
+            <li>
               <a id="user-profile-link" data-uk-lightbox>Welcome back {{username}}.</a>
             </li>
           </ul>
-
 
         <div class="uk-navbar-flip uk-visible-small">
           <a href="#offcanvas" class="uk-navbar-toggle" data-uk-offcanvas></a>
@@ -39,20 +37,19 @@
     </div>
   </div>
 
-
   <!-- Map -->
   <div id="tm-hero" class="tm-hero uk-block uk-block-large uk-cover-background uk-flex uk-flex-middle uk-height-viewport"></div>
 
   <!-- Lists -->
-  <div id="tm-main" class="tm-main uk-block uk-block-secondary">
+  <div id="tm-main" class="tm-main uk-block uk-block-secondary" style="padding-top: 25px;">
     <div class="uk-container uk-container-center">
       <div class="uk-grid" data-uk-grid-match data-uk-grid-margin>
-        <main id="list" class="uk-width-1-1" data-ng-controller="UsersController">
+        <main id="list" class="uk-width-1-1">
           <div class="pk-system-messages"></div>
             <article class="uk-article">
-              <div class="uk-width-medium-3-4 uk-container-center">
-                <h3 id="contact" class="uk-text-center uk-h2 uk-contrast">This is where get requests populate</h3>
-                <div data-user-list-directive></div>
+              <div class="uk-grid uk-grid-width-medium-1-2 uk-grid-match" data-uk-grid-margin>
+                <div data-fitness-list-directive></div> <!-- List Directive -->
+                <div data-user-list-directive></div> <!-- List Directive -->
               </div>
             </article>
           </div>
