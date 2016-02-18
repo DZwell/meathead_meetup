@@ -1,83 +1,38 @@
- var geocoder;
-  var map;
-  function initialize() {
-    geocoder = new google.maps.Geocoder();
-    var latlng = new google.maps.LatLng(-34.397, 150.644);
-    var mapOptions = {
-      zoom: 12,
-      center: latlng
-    }
-    map = new google.maps.Map(document.getElementById("map"), mapOptions);
-  }
-
- //  function codeAddress() {
- //    var address = document.getElementById("gym").value;
- //    geocoder.geocode( { 'address': address}, function(results, status) {
- //      if (status == google.maps.GeocoderStatus.OK) {
- //        map.setCenter(results[0].geometry.location);
- //        var marker = new google.maps.Marker({
- //            map: map,
- //            position: results[0].geometry.location
- //        });
- //      } else {
- //        alert("Geocode was not successful for the following reason: " + status);
- //      }
- //    });
- //  }
 
 
-function placeFind() {
-  var mapOptions = {
-    center: {lat: -33.8688, lng: 151.2195},
-    zoom: 13,
-    scrollwheel: false
-  };
-  var map = new google.maps.Map(document.getElementById('map'),
-    mapOptions);
+function initMap() {
+  var usa = {lat: 39.062, lng: -101.778};
 
-  var input = $('#gym');
-
-  // Create the autocomplete helper, and associate it with
-  // an HTML text input box.
-  var autocomplete = new google.maps.places.Autocomplete(input);
-  autocomplete.bindTo('bounds', map);
-
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: usa,
+    zoom: 3
+  });
   var infowindow = new google.maps.InfoWindow();
-  var marker = new google.maps.Marker({
-    map: map
-  });
-  google.maps.event.addListener(marker, 'click', function() {
-    infowindow.open(map, marker);
-  });
+  var geocoder = new google.maps.Geocoder();
+  // var service = new google.maps.places.PlacesService(map);
 
-  // Get the full place details when the user selects a place from the
-  // list of suggestions.
-  google.maps.event.addListener(autocomplete, 'place_changed', function() {
-    infowindow.close();
-    var place = autocomplete.getPlace();
-    if (!place.geometry) {
-      return;
-    }
+  $('#submit').on('click', function(e) {
+    e.preventDefault();
+    geocodeAddress(geocoder, map);
+    map.setZoom(13);
+  });
+}
 
-    if (place.geometry.viewport) {
-      map.fitBounds(place.geometry.viewport);
+function placeSearch() {
+}
+
+function geocodeAddress(geocoder, resultsMap) {
+  var address = $('#gym').val();
+  geocoder.geocode({'address': address}, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      resultsMap.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+        map: resultsMap,
+        position: results[0].geometry.location,
+        zoom: 10
+      });
     } else {
-      map.setCenter(place.geometry.location);
-      map.setZoom(17);
+      alert('Geocode was not successful for the following reason: ' + status);
     }
-
-    // Set the position of the marker using the place ID and location.
-    marker.setPlace(/** @type {!google.maps.Place} */ ({
-      placeId: place.place_id,
-      location: place.geometry.location
-    }));
-    marker.setVisible(true);
-
-    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-        'Place ID: ' + place.place_id + '<br>' +
-        place.formatted_address + '</div>');
-    infowindow.open(map, marker);
   });
 }

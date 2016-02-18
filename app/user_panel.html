@@ -7,7 +7,7 @@
 </head>
 <body>
     <div id="form_container">
-        <form>
+        <form id="users">
             Name:
             <input class="properties" id="userName" type="text" name="userName" placeholder="Name"><br>
             Day of the Week:
@@ -26,8 +26,8 @@
     <div id="map"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/sort.js"></script>
-    <script type="text/javascript" src="js/events.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1j-GHVkBSNe2evr1j6lhZworXFsUwubA&callback=initialize"></script>
+    <!-- <script type="text/javascript" src="js/events.js"></script> -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1j-GHVkBSNe2evr1j6lhZworXFsUwubA&callback=initMap&libraries=places"></script>
     <script type="text/javascript" src="js/maps.js"></script>
 </body>
 </html>
