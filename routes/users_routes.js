@@ -3,7 +3,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var User = require(__dirname + '/../models/user');
-// var eatAuth = require(__dirname + '/../lib/eat_auth');
+var eatAuth = require(__dirname + '/../lib/eat_auth');
 var handleError = require(__dirname + '/../lib/handle_error');
 
 var usersRouter = module.exports = exports = express.Router();
