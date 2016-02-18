@@ -2,7 +2,7 @@
 
 $(function(){
 
-    $('#submit').click('submit', function(event) {
+    $('#users').submit(function(event) {
         event.preventDefault();
 
 
@@ -15,7 +15,7 @@ $(function(){
         };
         users.push(newUser);
         // $('.properties').val('');
-        codeAddress();
+        geolocate();
 
 
 
