@@ -1,4 +1,4 @@
-var infowindow;
+var infowindow = null;
 var map;
 
 function initMap() {
@@ -6,9 +6,10 @@ function initMap() {
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: usa,
-    zoom: 3
+    scrollwheel: false,
+    zoom: 3,
+    scaleControl: true
   });
-  var infowindow = new google.maps.InfoWindow();
   var geocoder = new google.maps.Geocoder();
 
   $('#submit').on('click', function(e) {
@@ -26,12 +27,11 @@ function geocodeAddress(geocoder, resultsMap) {
       var latitude = results[0].geometry.location.lat();
       var longitude = results[0].geometry.location.lng();
       var userLocation = {lat: latitude, lng: longitude};
-      console.log(userLocation);
 
       var service = new google.maps.places.PlacesService(map);
       service.nearbySearch({
         location: userLocation,
-        radius: 500,
+        radius: 1000,
         types: ['gym']
       }, callback);
     }
@@ -55,13 +55,17 @@ function createMarker(place) {
   var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
     map: map,
+    animation: google.maps.Animation.DROP,
     position: place.geometry.location
   });
 
 
   google.maps.event.addListener(marker, 'click', function() {
+    if (infowindow != null) {
+      infowindow.close();
+    }
     infowindow.setContent(place.name);
-    infowindow.open(map, this);
+    infowindow.open(map, marker);
   });
 }
 

@@ -8,21 +8,13 @@
 <body>
     <div id="form_container">
         <form id="users">
-            Name:
-            <input class="properties" id="userName" type="text" name="userName" placeholder="Name"><br>
-            Day of the Week:
-            <input class="properties" id="day" type="text" name="day" placeholder="Day of the Week"><br>
-            Time:
-            <input class="properties" id="times" type="text" name="time" placeholder="Times"><br>
-            Area:
             <input class="properties" id="gym" type="text" name="gym" placeholder="Address">
-            <br>
-            Muscle Group:
-            <input class="properties" id="muscle" type="text" name="muscleGroup" placeholder="muscles"><br>
+            <select>
+                <option default>Radius</option>
+            </select>
             <button id="submit" type="submit">Submit</button><br>
-            <button id="matchMaker">Find likeminded Meatheads</button>
         </form>
-    </div>
+    </div><br>
     <div id="map"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/sort.js"></script>
