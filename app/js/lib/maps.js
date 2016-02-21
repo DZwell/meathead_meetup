@@ -1,6 +1,5 @@
 var map;
 var autocomplete;
-var infowindow;
 
 function initMap() {
   var usa = {lat: 39.062, lng: -101.778};
