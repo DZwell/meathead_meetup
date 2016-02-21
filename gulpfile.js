@@ -33,7 +33,7 @@ var testCssFiles = [
 ];
 
 var testJS = [
-  'app/js/lib/test-map.js'
+  'app/js/lib/map.js'
 ];
 
 gulp.task('static:dev', function() {

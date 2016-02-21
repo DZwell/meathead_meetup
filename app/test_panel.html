@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="Pagekit 0.9.0">
-  <title>Welcome back, Meathead.</title>
+  <title>Meathead Meet-Up</title>
   <link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/test.css" rel="stylesheet">
@@ -13,19 +13,24 @@
 <body class="tm-background" ng-cloak data-ng-app="MeatheadApp" data-ng-controller="UsersController">
 
   <!-- Nav -->
-  <div class="tm-navbar tm-navbar-overlay" data-uk-sticky='{"media":767,"showup":true,"animation":"uk-animation-slide-top","top":".uk-sticky-placeholder + *","clsinactive":"tm-navbar-transparent"}'>
+  <div class="tm-navbar tm-navbar-overlay" data-uk-sticky='{"media":767"}'>
     <div class="uk-container uk-container-center">
       <nav class="uk-navbar">
-          <ul class="uk-navbar-nav">
+          <ul class="uk-navbar-nav uk-vertical-align-middle" style="width: 100%;">
 
-            <li class="uk-width-large-1-2 uk-container-left">
-              <form class="uk-form">
-                <input class="uk-width-1-1" id="sign-in-form-username" type="text" name="credentials[username]" value="" placeholder="Username" required autofocus>
+            <li class="uk-width-1-3">
+              <form class="uk-form" style="margin-top: 19px">
+                <input class="uk-width-1-1" id="user-location-search" type="text" value="" placeholder="Address or Gym" required autofocus>
               </form>
             </li>
 
+            <li class="uk-width-1-3">
+              <form class="uk-form"style="margin-top: 19px">
+                <button class="uk-button uk-button-primary uk-button-medium uk-width-1-2" id="submit" style="max-width: 49.2%;" type="submit">GO</button>
+              </form>
+            </li>
 
-            <li>
+            <li class="uk-width-1-3">
               <a id="user-profile-link" data-uk-lightbox>Welcome back {{username}}.</a>
             </li>
           </ul>
@@ -38,7 +43,7 @@
   </div>
 
   <!-- Map -->
-  <div id="tm-hero" class="tm-hero uk-block uk-block-large uk-cover-background uk-flex uk-flex-middle uk-height-viewport"></div>
+  <div id="map" class="tm-hero uk-block uk-block-large uk-cover-background uk-flex uk-flex-middle uk-height-viewport"></div>
 
   <!-- Lists -->
   <div id="tm-main" class="tm-main uk-block uk-block-secondary" style="padding-top: 25px;">
@@ -80,7 +85,7 @@
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1j-GHVkBSNe2evr1j6lhZworXFsUwubA&callback=initMap"></script>
 
   <!-- Scripts -->
-  <script type="text/javascript" src="js/test-map.js"></script>
+  <script type="text/javascript" src="js/maps.js"></script>
 
   <!-- Bundle -->
   <script src="js/bundle.js"></script>
