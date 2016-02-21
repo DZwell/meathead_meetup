@@ -1,11 +1,13 @@
 var map;
 var autocomplete;
-var infowindow;
+var service;
 
 function initMap() {
   var usa = {lat: 39.062, lng: -101.778};
   var infowindow = new google.maps.InfoWindow({content: ''});
   var geocoder = new google.maps.Geocoder();
+  // var autocomplete = new google.maps.places.Autocomplete($('#user-location-search'));
+  // autocomplete.bindTo('bounds', map);
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: usa,
@@ -58,25 +60,29 @@ function initMap() {
   }
 
   function createMarker(place) {
+    var service = new google.maps.places.PlacesService(map);
     var placeLoc = place.geometry.location;
     var marker = new google.maps.Marker({
       map: map,
       animation: google.maps.Animation.DROP,
       position: place.geometry.location,
-      map: map
     });
 
-
-    marker.addListener('click', function() {
-      infowindow.setContent(place.name);
-      infowindow.open(map, marker);
-    });
+    var request = {reference: place.reference};
+    google.maps.event.addListener(marker, 'click', function() {
+      service.getDetails(request, function(place, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          infowindow.setContent('<div><strong>' + place.name + '</strong><br>'
+            + place.formatted_address + '</div');
+          infowindow.open(map, marker);
+        }
+      });
+    })
   }
 
 
   function clickListener(id, types) {
-    autocomplete = new google.maps.places.Autocomplete($('#user-location-search'));
-    autocomplete.bindTo('bounds', map);
+
   }
 
 };
