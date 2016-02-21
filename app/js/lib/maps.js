@@ -5,6 +5,8 @@ function initMap() {
   var usa = {lat: 39.062, lng: -101.778};
   var infowindow = new google.maps.InfoWindow({content: ''});
   var geocoder = new google.maps.Geocoder();
+  // var autocomplete = new google.maps.places.Autocomplete($('#user-location-search'));
+  // autocomplete.bindTo('bounds', map);
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: usa,
@@ -74,8 +76,7 @@ function initMap() {
 
 
   function clickListener(id, types) {
-    autocomplete = new google.maps.places.Autocomplete($('#user-location-search'));
-    autocomplete.bindTo('bounds', map);
+
   }
 
 };
