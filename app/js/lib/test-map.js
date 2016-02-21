@@ -1,53 +1,69 @@
-'use strict';
+// var infowindow;
+// var map;
+// var gyms = [];
 
-var west = '47.566789, -122.386695';
-var north = '47.795540, -122.308983';
-var central = '47.609307, -122.335581';
-var south = '47.530853, -122.270520';
+// function initMap() {
+//   var usa = {lat: 39.062, lng: -101.778};
 
-var neighborhoods = [west, central, south, north];
+//   map = new google.maps.Map(document.getElementById('map'), {
+//     center: usa,
+//     scrollwheel: false,
+//     zoom: 3,
+//     scaleControl: true
+//   });
+//   var infowindow = new google.maps.InfoWindow();
+//   var geocoder = new google.maps.Geocoder();
 
-function initMap() {
-  var map = new google.maps.Map(document.getElementById('tm-hero'), {
-    zoom: 8,
-    center: {lat: 40.731, lng: -73.997},
-    scrollwheel: false
-  });
-  var geocoder = new google.maps.Geocoder;
-  var infowindow = new google.maps.InfoWindow;
+//   $('#submit').on('click', function(e) {
+//     e.preventDefault();
+//     geocodeAddress(geocoder, map);
+//     map.setZoom(13);
+//   });
+// }
 
-  document.getElementById('submit').addEventListener('click', function(e) {
-    e.preventDefault();
-    geocodeLatLng(geocoder, map, infowindow);
-  });
-}
+// function geocodeAddress(geocoder, resultsMap) {
+//   var address = $('#user-location-search').val();
+//   geocoder.geocode({'address': address}, function(results, status) {
+//     if (status === google.maps.GeocoderStatus.OK) {
+//       resultsMap.setCenter(results[0].geometry.location);
+//       var latitude = results[0].geometry.location.lat();
+//       var longitude = results[0].geometry.location.lng();
+//       var userLocation = {lat: latitude, lng: longitude};
 
-function geocodeLatLng(geocoder, map, infowindow) {
-  var $dropDown = $('#area');
-  console.log($dropDown);
-  var input = dropDown.options[dropDown.selectedIndex].value;
-  for (key in neighborhoods) {
-    if (input == key) {
-        var latlngStr = neighborhoods[key];
-    }
-  };
-  var latlngStr = input.split(',', 2);
-  var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
-  geocoder.geocode({'location': latlng}, function(results, status) {
-    if (status === google.maps.GeocoderStatus.OK) {
-      if (results[1]) {
-        map.setZoom(11);
-        var marker = new google.maps.Marker({
-          position: latlng,
-          map: map
-        });
-        infowindow.setContent(results[1].formatted_address);
-        infowindow.open(map, marker);
-      } else {
-        window.alert('No results found');
-      }
-    } else {
-      window.alert('Geocoder failed due to: ' + status);
-    }
-  });
-}
+//       var service = new google.maps.places.PlacesService(map);
+//       service.nearbySearch({
+//         location: userLocation,
+//         radius: 1000,
+//         types: ['gym']
+//       }, callback);
+//     }
+//     else {
+//       alert('Geocode was not successful for the following reason: ' + status);
+//     }
+//   });
+// }
+
+
+// function callback(results, status) {
+//   if (status === google.maps.places.PlacesServiceStatus.OK) {
+//     for (var i = 0; i < results.length; i++) {
+//       createMarker(results[i]);
+//     }
+//   }
+// }
+
+// function createMarker(place) {
+//   var infowindow = new google.maps.InfoWindow();
+//   var placeLoc = place.geometry.location;
+//   var marker = new google.maps.Marker({
+//     map: map,
+//     position: place.geometry.location
+//   });
+
+//   gyms.push(place);
+
+//   google.maps.event.addListener(marker, 'click', function() {
+//     infowindow.setContent(place.name);
+//     infowindow.open(map, this);
+//   });
+// }

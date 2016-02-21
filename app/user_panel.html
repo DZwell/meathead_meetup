@@ -13,7 +13,12 @@
 <body>
     <div id="form_container">
         <form id="users">
-            <input class="properties" id="gym" type="text" name="gym" placeholder="Address">
+            Search for your area or your favorite gym below:<br>
+            <input type="radio" name="type" id="place"></input>
+            <label for="place">Gym</label>
+            <input type="radio" name="type" id="address"></input>
+            <label for="address">Area</label><br>
+            <input class="properties" id="user-location-search" type="text" name="gym" placeholder="Address">
             <select>
                 <option default>Radius</option>
             </select>
