@@ -1,8 +1,3 @@
-// var map;
-// var autocomplete;
-// var service;
-// var marker;
-
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 39.062, lng: -101.778},
@@ -28,7 +23,6 @@ function initMap() {
     if ($('#place').is(':checked')){
       setupClickListener(['establishment'])
     }
-    map.setZoom(13);
   });
 
 
@@ -59,6 +53,8 @@ function initMap() {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
         createMarker(results[i]);
+        map.setZoom(13);
+        $('#user-location-search').val('');
       }
     }
   }
@@ -107,13 +103,7 @@ function initMap() {
         map.setCenter(place.geometry.location);
         map.setZoom(17);  // Why 17? Because it looks good.
       }
-      marker.setIcon(/** @type {google.maps.Icon} */({
-        url: place.icon,
-        size: new google.maps.Size(71, 71),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(35, 35)
-    }));
+
     marker.setPosition(place.geometry.location);
     marker.setVisible(true);
 
@@ -128,6 +118,7 @@ function initMap() {
 
     infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
     infowindow.open(map, marker);
+    $('#user-location-search').val('');
   }); //End autocomplete event listener
 
 
