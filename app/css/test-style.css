@@ -24,3 +24,7 @@
 .hover-color:hover {
   background-color: rgba(136, 136, 136, .2);
 }
+
+#tm-main {
+  margin-top: 70%;
+}
