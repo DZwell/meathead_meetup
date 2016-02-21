@@ -2,6 +2,7 @@
 
 require('angular/angular');
 var angular = window.angular;
+var google = window.google;
 
 var meatheadApp = angular.module('MeatheadApp', []);
 
@@ -12,9 +13,11 @@ var meatheadApp = angular.module('MeatheadApp', []);
 // require('./directives/directives')(meatheadApp);
 
 // Resources
+require('./gyms/gyms')(meatheadApp);
 require('./users/users')(meatheadApp);
 
 // Lib
 require('./lib/scroll');
 require('./lib/sign-up');
 require('./lib/sign-in');
+// require('./lib/test-map');
