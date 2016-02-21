@@ -1,5 +1,6 @@
 var map;
 var autocomplete;
+var service;
 
 function initMap() {
   var usa = {lat: 39.062, lng: -101.778};
@@ -59,19 +60,24 @@ function initMap() {
   }
 
   function createMarker(place) {
+    var service = new google.maps.places.PlacesService(map);
     var placeLoc = place.geometry.location;
     var marker = new google.maps.Marker({
       map: map,
       animation: google.maps.Animation.DROP,
       position: place.geometry.location,
-      map: map
     });
 
-
-    marker.addListener('click', function() {
-      infowindow.setContent(place.name);
-      infowindow.open(map, marker);
-    });
+    var request = {reference: place.reference};
+    google.maps.event.addListener(marker, 'click', function() {
+      service.getDetails(request, function(place, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          infowindow.setContent('<div><strong>' + place.name + '</strong><br>'
+            + place.formatted_address + '</div');
+          infowindow.open(map, marker);
+        }
+      });
+    })
   }
 
 
