@@ -1,5 +1,7 @@
 var infowindow = null;
 var map;
+var autocomplete;
+var map;
 
 function initMap() {
   var usa = {lat: 39.062, lng: -101.778};
@@ -14,7 +16,14 @@ function initMap() {
 
   $('#submit').on('click', function(e) {
     e.preventDefault();
-    geocodeAddress(geocoder, map);
+    if ($('#place').is(':checked')){
+      console.log('places people!')
+      geocodeAddress(geocoder, map);
+    }
+    if ($('#address').is(':checked')){
+      console.log('Addreakldjflkj')
+      clickListener(['establishment'])
+    }
     map.setZoom(13);
   });
 }
@@ -69,5 +78,10 @@ function createMarker(place) {
   });
 }
 
-//klajdflkj
+
+function clickListener(id, types) {
+  autocomplete = new google.maps.places.Autocomplete($('#user-location-search'));
+  autocomplete.bindTo('bounds', map);
+}
+
 
