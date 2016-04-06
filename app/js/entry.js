@@ -4,8 +4,9 @@ require('angular/angular');
 var angular = window.angular;
 
 var meatheadApp = angular.module('MeatheadApp', []);
+require('./directives/directives')(meatheadApp);
 
-// AngularJS
+// Resources
 require('./map/map')(meatheadApp);
 require('./users/users')(meatheadApp);
 
