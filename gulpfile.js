@@ -97,4 +97,5 @@ gulp.task('watch:check', function() {
 })
 
 gulp.task('build', ['webpack:dev', 'static:dev', 'home-css:dev', 'user-css:dev', 'test-css:dev', 'test-js:dev', 'user-js:dev']);
-gulp.task('default', ['watch:build']);
+gulp.task('watch', ['watch:build']);
+gulp.task('default', ['build']);

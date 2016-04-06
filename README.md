@@ -12,6 +12,9 @@ Start the mongo server with `mongod --dbpath=./db --smallfiles`, the gulp tasks 
 
 Finally, head to `localhost:3000` to use the app.
 
+####Some helpful(for now) Commands####
+
+
 ####To-do
 
 #####Front-end

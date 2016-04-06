@@ -1,10 +1,13 @@
 {
   "name": "meathead_meetup",
   "version": "0.1.0",
+  "engines": {
+    "node": "4.3.0"
+  },
   "description": "Meet meatheads for meeting up for the gyms",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "gulp default",
     "start": "node server.js"
   },
   "repository": {
@@ -18,12 +21,19 @@
   },
   "homepage": "https://github.com/DZwell/meathead_meetup#readme",
   "dependencies": {
+    "angular": "^1.4.9",
+    "angular-google-maps": "^2.3.2",
+    "angular-route": "^1.4.9",
     "bcrypt": "^0.8.5",
     "body-parser": "^1.14.2",
     "eat": "^0.1.1",
     "express": "^4.13.4",
     "gulp": "^3.9.1",
-    "mongoose": "^4.4.1"
+    "gulp-concat-css": "^2.2.0",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "mongoose": "^4.4.1",
+    "webpack-stream": "^3.1.0"
   },
   "devDependencies": {
     "angular": "^1.4.9",
