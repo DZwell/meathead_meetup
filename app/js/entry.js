@@ -8,7 +8,7 @@ var meatheadApp = angular.module('MeatheadApp', ['uiGmapgoogle-maps'])
   GoogleMapApiProviders.configure({
 
   });
-}]))
+}]);
 
 // AngularJS
 require('./map/map')(meatheadApp);
