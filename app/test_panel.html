@@ -44,7 +44,8 @@
 
   <section>
     <!-- Map -->
-    <div id="map" class="tm-hero uk-block uk-block-large uk-cover-background uk-flex uk-flex-middle" data-ng-controller="GymsController" data-ng-init="initMap()"></div>
+<!--     <div id="map" class="tm-hero uk-block uk-block-large uk-cover-background uk-flex uk-flex-middle" data-ng-controller="MapController"></div> -->
+    <ui-gmap-google-map center="map.center" zoom="map.zoom"></ui-gmap-google-map>
 
     <!-- Lists -->
     <div id="tm-main" class="tm-main uk-block uk-block-secondary" style="padding-top: 25px;padding-bottom: 50px;">
@@ -55,7 +56,7 @@
               <article class="uk-article">
                 <div class="uk-grid uk-grid-width-medium-1-2 uk-grid-match" data-uk-grid-margin>
 
-                <div data-ng-controller="GymsController">
+                <div data-ng-controller="MapController">
                   <div data-fitness-list-directive></div> <!-- List Directive -->
                 </div>
 
@@ -103,13 +104,14 @@
   </div> -->
 
   <!-- Libraries -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1j-GHVkBSNe2evr1j6lhZworXFsUwubA&libraries=places"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
   <script src="js/bundle.js"></script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1j-GHVkBSNe2evr1j6lhZworXFsUwubA&libraries=places"></script>
 
-  <!-- Scripts -->
-    <script type="text/javascript" src="js/test-map.js"></script>
+
+  <!-- Scripts
+  <!-- <script type="text/javascript" src="js/test-map.js"></script> -->
 
   <!-- Bundle -->
 

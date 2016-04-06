@@ -2,18 +2,16 @@
 
 require('angular/angular');
 var angular = window.angular;
-var google = window.google;
 
-var meatheadApp = angular.module('MeatheadApp', []);
+var meatheadApp = angular.module('MeatheadApp', ['uiGmapgoogle-maps'])
+.config(['uiGmapGoogleMapApiProvider', function(GoogleMapApiProviders) {
+  GoogleMapApiProviders.configure({
+
+  });
+}]))
 
 // AngularJS
-// require('./filters/filters')(meatheadApp);
-// require('./services/services')(meatheadApp);
-// require('./controllers/controllers')(meatheadApp);
-// require('./directives/directives')(meatheadApp);
-
-// Resources
-require('./gyms/gyms')(meatheadApp);
+require('./map/map')(meatheadApp);
 require('./users/users')(meatheadApp);
 
 // Lib
