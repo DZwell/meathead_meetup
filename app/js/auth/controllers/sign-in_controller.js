@@ -5,22 +5,30 @@ module.exports = function(app) {
     $scope.authenticate = function(user) {
       $http({
         method: 'GET',
-        url: '/api/signin',
+        url: '/api/sign-in',
         headers: {
           'Authorization': 'Basic ' + $base64.encode(user.username + ':' + user.password)
         }
       })
       .then(function(res) {
         $cookies.put('token', res.data.token);
-        $scope.getUser(); //from auth controller
+        $scope.renderRes(res.data.msg);
+        $scope.getUser();
         $location.path('/users');
       }, function(err) {
         console.log(err);
       });
     };
 
-    $scope.changePlaces = function() {
-      $location.path('/signup');
+    $scope.renderRes = function(res) {
+      // var element = document.getElementById('sign-up-success');
+
+      // element.innerHTML = res;
+      console.log(res);
     };
+
+    // $scope.changePlaces = function() {
+    //   $location.path('/sign-up');
+    // };
   }]);
 };

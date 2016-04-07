@@ -6,14 +6,14 @@
         <h2>The easiest way to find a workout partner.</h2>
 
         <!-- Sign-in form -->
-        <div id="sign-in" class="uk-width-large-1-1 uk-container-center">
+        <div id="sign-in" class="uk-width-large-1-1 uk-container-center" data-ng-controller="SigninController" data-ng-submit="authenticate(user)">
           <div class="uk-width-large-1-2 uk-container-center">
             <form class="uk-form uk-form-stacked">
               <div class="uk-form-row">
-                <input class="uk-width-1-1" id="sign-in-form-username" type="text" name="credentials[username]" value="" placeholder="Username" required autofocus>
+                <input class="uk-width-1-1" id="sign-in-form-username" type="text" name="credentials[username]" value="" placeholder="Username" required autofocus data-ng-model="user.username">
               </div>
               <div class="uk-form-row">
-                <input class="uk-width-1-1" id="sign-in-form-password" type="password" name="credentials[password]" value="" placeholder="••••••••" required>
+                <input class="uk-width-1-1" id="sign-in-form-password" type="password" name="credentials[password]" value="" placeholder="••••••••" required data-ng-model="user.password">
               </div>
               <p class="uk-form-row uk-margin-small-bottom">
                 <button class="uk-button uk-button-primary uk-button-medium uk-width-1-2" id="sign-in-form-submit" style="max-width: 49.2%;" type="submit">Sign in</button>
