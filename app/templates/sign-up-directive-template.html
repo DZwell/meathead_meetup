@@ -7,20 +7,20 @@
           <h2 class="uk-h1 uk-margin-large-bottom">Find yourself a spotter.</h2>
 
           <!-- Sign-up form -->
-          <div class="uk-width-large-1-2 uk-container-center">
+          <div class="uk-width-large-1-2 uk-container-center" data-ng-controller="SignupController" data-ng-submit="authenticate(user)">
             <form class="uk-form uk-form-stacked">
               <div class="uk-form-row">
-                <input class="uk-width-1-1" id="sign-up-form-name" type="text" name="credentials[name]" placeholder="Name" required autofocus>
+                <input class="uk-width-1-1" id="sign-up-form-name" type="text" name="credentials[name]" placeholder="Name" required autofocus data-ng-model="user.name">
               </div>
               <div class="uk-form-row">
-                <input class="uk-width-1-1" id="sign-up-form-username" type="text" name="credentials[username]" placeholder="Username" required autofocus>
+                <input class="uk-width-1-1" id="sign-up-form-username" type="text" name="credentials[username]" placeholder="Username" required autofocus data-ng-model="user.username">
               </div>
               <div class="uk-form-row">
-                <input class="uk-width-1-1" id="sign-up-form-email" type="text" name="credentials[email]" placeholder="name@domain.com" required autofocus>
+                <input class="uk-width-1-1" id="sign-up-form-email" type="text" name="credentials[email]" placeholder="name@domain.com" required autofocus data-ng-model="user.email">
               </div>
 
               <div class="uk-form-row">
-                <input class="uk-width-1-2" id="sign-up-form-password" style="max-width: 49.28%;" type="password" name="credentials[password]" placeholder="••••••••" required>
+                <input class="uk-width-1-2" id="sign-up-form-password" style="max-width: 49.28%;" type="password" name="credentials[password]" placeholder="••••••••" required data-ng-model="user.password">
                 <input class="uk-width-1-2" id="sign-up-form-password-check" style="max-width: 49.28%;" type="password" name="credentials[password]" placeholder="••••••••" required>
               </div>
 

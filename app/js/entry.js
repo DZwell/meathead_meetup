@@ -1,17 +1,14 @@
 'use strict';
 
 require('angular/angular');
+require('angular-route');
+require('angular-cookies');
+require('angular-base64');
 var angular = window.angular;
 
-var meatheadApp = angular.module('MeatheadApp', []);
+var meatheadApp = angular.module('MeatheadApp', ['ngRoute', 'ngCookies', 'base64']);
 require('./directives/directives')(meatheadApp);
 
 // Resources
-require('./map/map')(meatheadApp);
+require('./auth/auth')(meatheadApp);
 require('./users/users')(meatheadApp);
-
-// Lib
-require('./lib/scroll');
-require('./lib/sign-up');
-require('./lib/sign-in');
-// require('./lib/test-map');
