@@ -4,7 +4,6 @@ var express = require('express');
 var jsonParser = require('body-parser').json();
 var handleError = require(__dirname + '/../lib/handle_error');
 var basicHttp = require(__dirname + '/../lib/basic_http_authentication');
-var basicError = require(__dirname + '/../lib/handle_auth_error');
 var User = require(__dirname + '/../models/user');
 var eatAuth = require(__dirname + '/../lib/eat_auth');
 
@@ -31,12 +30,14 @@ authRouter.post('/sign-up', jsonParser, function(req, res) {
 
 authRouter.get('/sign-in', basicHttp, function(req, res) {
   if (!(req.auth.username && req.auth.password)) {
-    basicError();
+    console.log(err);
+    return res.status(401).json({msg: 'Authenitcation failed.'});
   }
 
   User.findOne({'auth.basic.username': req.auth.username}, function(err, user) {
     if (err || !user || !user.checkPassword(req.auth.password)) {
-      basicError();
+      console.log(err);
+      return res.status(401).json({msg: 'Authenitcation failed.'});
     }
 
     user.generateToken(function(err, token) {
