@@ -1,13 +1,16 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('UsersController', ['$scope', '$http', function($scope, $http) {
+  app.controller('UsersController', ['$scope', '$http', '$location', '', function($scope, $http) {
     $scope.users = [];
     $scope.errors = [];
     $scope.newUser = {};
     $scope.username = 'Chris Harrison';
     $scope.gyms = [];
     $scope.currentContent = {};
+
+    if (!$scope.token)
+      $location.path('/main');
 
     $scope.getAll = function() {
       $http.get('/api/users')

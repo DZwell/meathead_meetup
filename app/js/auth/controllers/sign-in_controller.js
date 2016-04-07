@@ -14,21 +14,14 @@ module.exports = function(app) {
         $cookies.put('token', res.data.token);
         $scope.renderRes(res.data.msg);
         $scope.getUser();
-        $location.path('/map');
+        $location.path('/profile');
       }, function(err) {
         console.log(err);
       });
     };
 
     $scope.renderRes = function(res) {
-      // var element = document.getElementById('sign-up-success');
-
-      // element.innerHTML = res;
       console.log(res);
     };
-
-    // $scope.changePlaces = function() {
-    //   $location.path('/sign-up');
-    // };
   }]);
 };

@@ -19,9 +19,5 @@ module.exports = function(app) {
 
       element.innerHTML = res;
     };
-
-    // $scope.changePlaces = function() {
-    //   $location.path(__dirname + '/market');
-    // };
   }]);
 };
