@@ -6,12 +6,23 @@ module.exports = function(app) {
       $http.post('/api/sign-up', user)
         .then(function(res){
           $cookies.put('token', res.data.token);
+
+
           console.log(res.data.msg);
+
+          $scope.renderRes(res.data.msg);
+
           $scope.getUser();
           $location.path('/users');
         }, function(err) {
           console.log(err.data);
         });
+    };
+
+    $scope.renderRes = function(res) {
+      var element = document.getElementById('sign-up-success');
+
+      element.innerHTML = res;
     };
 
     // $scope.changePlaces = function() {
