@@ -3,6 +3,10 @@
 module.exports = function(app) {
   app.controller('MapController', ['$scope', function($scope) {
 
+    $scope.user = {
+        name: 'Bill'
+    };
+
     $scope.map = {
       center: {
         latitude: 45,
