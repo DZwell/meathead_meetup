@@ -1,0 +1,51 @@
+<div class="uk-container uk-container-center">
+  <div class="uk-grid" data-uk-grid-match data-uk-grid-margin>
+    <main id="about" class="uk-width-1-1">
+      <div class="pk-system-messages"></div>
+      <article class="uk-article uk-text-center ">
+        <div class="uk-width-medium-3-4 uk-container-center" id="sign-up-form" style="margin-top: 100px;">
+          <h2 class="uk-h1 uk-margin-large-bottom">Find yourself a spotter.</h2>
+
+          <!-- Sign-up form -->
+          <div class="uk-width-large-1-2 uk-container-center" data-ng-controller="SignupController" data-ng-submit="authenticate(user)">
+            <form class="uk-form uk-form-stacked">
+              <div class="uk-form-row">
+                <input class="uk-width-1-1" id="sign-up-form-name" type="text" name="credentials[name]" placeholder="Name" required autofocus data-ng-model="user.name">
+              </div>
+              <div class="uk-form-row">
+                <input class="uk-width-1-1" id="sign-up-form-username" type="text" name="credentials[username]" placeholder="Username" required autofocus data-ng-model="user.username">
+              </div>
+              <div class="uk-form-row">
+                <input class="uk-width-1-1" id="sign-up-form-email" type="text" name="credentials[email]" placeholder="name@domain.com" required autofocus data-ng-model="user.email">
+              </div>
+
+              <div class="uk-form-row">
+                <input class="uk-width-1-2" id="sign-up-form-password" style="max-width: 49.28%;" type="password" name="credentials[password]" placeholder="••••••••" required data-ng-model="user.password">
+                <input class="uk-width-1-2" id="sign-up-form-password-check" style="max-width: 49.28%;" type="password" name="credentials[password]" placeholder="••••••••" required>
+              </div>
+
+              <p class="uk-form-row uk-margin-small-bottom">
+                <button class="uk-button uk-button-primary uk-button-large uk-width-1-1" id="sign-up-form-submit" type="submit">Sign up</button>
+              </p>
+              <ul class="uk-list uk-flex uk-flex-space-between uk-text-small uk-margin-bottom-remove">
+                <li>
+                  <label><input type="checkbox" name="remember_me"> Remember Me</label>
+                </li>
+                <li class="uk-text-right">
+                  <a class="uk-link" href="/user/resetpassword">Request Password</a>
+                </li>
+              </ul>
+            </form>
+
+            <div class="uk-container-center">
+              <span id="sign-up-success"></span>
+              <span id="sign-up-error"></span>
+            </div>
+
+          </div>
+          <!-- Form end -->
+        </div>
+      </article>
+    </main>
+  </div>
+</div>

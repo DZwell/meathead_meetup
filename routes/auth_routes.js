@@ -24,7 +24,7 @@ authRouter.post('/sign-up', jsonParser, function(req, res) {
     user.generateToken(function(err, token) {
       if (err) return handleError(err, res);
 
-      res.json({success: true, msg: 'Success!  Please login above.',token: token});
+      res.json({success: true, msg: 'Success!  Please login above.', token: token});
     });
   });
 });

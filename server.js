@@ -8,6 +8,7 @@ var authRouter = require(__dirname + '/routes/auth_routes');
 var bodyParser = require('body-parser');
 
 process.env.APP_SECRET = process.env.APP_SECRET || 'plschangethis'; // needs to be changed
+
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/meathead_dev');
 
 app.set('port', (process.env.PORT || 3000));
