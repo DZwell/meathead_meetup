@@ -6,12 +6,7 @@ module.exports = function(app) {
       $http.post('/api/sign-up', user)
         .then(function(res){
           $cookies.put('token', res.data.token);
-
-
-          console.log(res.data.msg);
-
           $scope.renderRes(res.data.msg);
-
           $scope.getUser();
           $location.path('/users');
         }, function(err) {
