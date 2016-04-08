@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('UsersController', ['$scope', '$http', '$location', '', function($scope, $http) {
+  app.controller('UsersController', ['$scope', '$http', '$location', '$cookies', function($scope, $http, $location, $cookies) {
     $scope.users = [];
     $scope.errors = [];
     $scope.newUser = {};

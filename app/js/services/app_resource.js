@@ -35,6 +35,7 @@ module.exports = function(app) {
         $http.delete('/api/' + resourceName + '/' + data._id)
         .then(handleSuccess(callback), handleFail(callback));
       };
+
       return resource;
     };
   }]);

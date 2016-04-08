@@ -29,7 +29,7 @@ meatheadApp.config(['$routeProvider', function($route) {
   })
   .when('/profile', {
     templateUrl: '/templates/profile-directive-template.html',
-    controller: ''
+    controller: 'UsersController'
   })
   .otherwise({
     redirectTo: '/main'
