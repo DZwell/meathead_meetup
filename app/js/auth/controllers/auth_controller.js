@@ -7,7 +7,16 @@ module.exports = function(app) {
       $http.defaults.headers.common.token = $scope.token;
       $http.get('/api/users')
       .then(function(res) {
-        $scope.currentUser = res.data.username;
+        $scope.currentUser = {
+          _id: res.data._id,
+          username: res.data.username,
+          name: res.data.name,
+          email: res.data.email,
+          biography: res.data.biography,
+          quote: res.data.quote,
+          location: res.data.location,
+          gym: res.data.gym
+        };
       }, function(err) {
         console.log(err);
       });

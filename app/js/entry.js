@@ -1,11 +1,9 @@
 'use strict';
 
-require('lodash');
 require('angular/angular');
 require('angular-route');
 require('angular-cookies');
 require('angular-base64');
-// require('angular-google-maps');
 var angular = window.angular;
 
 var meatheadApp = angular.module('MeatheadApp', ['ngRoute', 'ngCookies', 'base64']);
@@ -15,7 +13,6 @@ require('./directives/directives')(meatheadApp);
 // Resources
 require('./auth/auth')(meatheadApp);
 require('./users/users')(meatheadApp);
-// require('./map/map')(meatheadApp);
 
 meatheadApp.config(['$routeProvider', function($route) {
   $route
@@ -34,10 +31,4 @@ meatheadApp.config(['$routeProvider', function($route) {
   .otherwise({
     redirectTo: '/'
   })
-  // uiGmapGoogleMapApiProvider
-  // .configure({
-  //   key: 'AIzaSyD1j-GHVkBSNe2evr1j6lhZworXFsUwubA',
-  //   v: '3.20',
-  //   libraries: 'weather,geometry,visualization'
-  // })
 }]);
