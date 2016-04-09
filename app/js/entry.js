@@ -19,7 +19,7 @@ require('./users/users')(meatheadApp);
 
 meatheadApp.config(['$routeProvider', function($route) {
   $route
-  .when('/main', {
+  .when('/', {
     templateUrl: '/templates/main-view-directive-template.html',
     controller: 'AuthController'
   })
@@ -29,10 +29,10 @@ meatheadApp.config(['$routeProvider', function($route) {
   })
   .when('/profile', {
     templateUrl: '/templates/profile-directive-template.html',
-    controller: 'UsersController'
+    controller: 'ProfileController'
   })
   .otherwise({
-    redirectTo: '/main'
+    redirectTo: '/'
   })
   // uiGmapGoogleMapApiProvider
   // .configure({
