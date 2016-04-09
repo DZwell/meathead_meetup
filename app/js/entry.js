@@ -20,10 +20,6 @@ meatheadApp.config(['$routeProvider', function($route) {
     templateUrl: '/templates/main-view-directive-template.html',
     controller: 'AuthController'
   })
-  .when('/map', {
-    templateUrl: '/templates/map-directive-template.html',
-    controller: 'MapController'
-  })
   .when('/profile', {
     templateUrl: '/templates/profile-directive-template.html',
     controller: 'ProfileController'
