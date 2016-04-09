@@ -1,16 +1,23 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('UsersController', ['$scope', '$http', '$location', '$cookies', function($scope, $http, $location, $cookies) {
+  app.controller('ProfileController', ['$scope', '$http', '$location', '$cookies', function($scope, $http, $location, $cookies) {
     $scope.users = [];
     $scope.errors = [];
     $scope.newUser = {};
-    $scope.username = 'Chris Harrison';
     $scope.gyms = [];
     $scope.currentContent = {};
 
-    if (!$scope.token)
-      $location.path('/main');
+    $scope.tempUsers = [
+      {
+        username: 'boner johson',
+        Bio: 'Just one of the guys!'
+      },
+      {
+        username: 'ben reed',
+        Bio: 'I am a baby with no thoughts of any importance.'
+      }
+    ];
 
     $scope.getAll = function() {
       $http.get('/api/users')
@@ -67,5 +74,13 @@ module.exports = function(app) {
       user.content = tempUser.content;
       user.editing = false;
     };
+
+
+    if ($scope.currentUser === undefined || $scope.currentUser === null) {
+      $cookies.putObject('resume', $scope.resume);
+
+      return;
+    }
+    $scope.getAll();
   }]);
 };

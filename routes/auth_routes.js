@@ -34,7 +34,7 @@ authRouter.get('/sign-in', basicHttp, function(req, res) {
     return res.status(401).json({msg: 'Authenitcation failed.'});
   }
 
-  User.findOne({'auth.basic.username': req.auth.username}, function(err, user) {
+  User.findOne({'auth.basic.username': req.auth.username}, function(err, user) { // Change here for more user info
     if (err || !user || !user.checkPassword(req.auth.password)) {
       console.log(err);
       return res.status(401).json({msg: 'Authenitcation failed.'});

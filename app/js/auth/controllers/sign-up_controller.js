@@ -8,7 +8,7 @@ module.exports = function(app) {
           $cookies.put('token', res.data.token);
           $scope.renderRes(res.data.msg);
           $scope.getUser();
-          $location.path('/users');
+          $location.path('/');
         }, function(err) {
           console.log(err.data);
         });
@@ -19,9 +19,5 @@ module.exports = function(app) {
 
       element.innerHTML = res;
     };
-
-    // $scope.changePlaces = function() {
-    //   $location.path(__dirname + '/market');
-    // };
   }]);
 };

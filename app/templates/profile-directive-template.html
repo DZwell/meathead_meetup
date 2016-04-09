@@ -1,0 +1,16 @@
+<div data-ng-init="getUser()">
+  <a data-ng-if="currentUser" href data-ng-click="logOut()">Log Out of {{ currentUser }}</a>
+  <span data-ng-model="currentUser">{{ currentUser.name }}</span>
+
+
+  <!-- <div data-ng-init="getAll()">
+  <ul>
+    <li data-ng-repeat="users in tempUsers">{{ users }}</li>
+  </ul>
+
+  <ul>
+    <li data-ng-repeat="user in users">{{ user.username }} </li>
+  </ul>
+  </div>
+   -->
+</div>
