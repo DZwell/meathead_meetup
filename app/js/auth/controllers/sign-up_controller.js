@@ -8,7 +8,7 @@ module.exports = function(app) {
           $cookies.put('token', res.data.token);
           $scope.renderRes(res.data.msg);
           $scope.getUser();
-          $location.path('/');
+          $location.path('/home');
         }, function(err) {
           console.log(err.data);
         });

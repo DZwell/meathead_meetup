@@ -16,15 +16,15 @@ require('./users/users')(meatheadApp);
 
 meatheadApp.config(['$routeProvider', function($route) {
   $route
-  .when('/', {
-    templateUrl: '/templates/main-view-directive-template.html',
+  .when('/home', {
+    templateUrl: '/templates/home/main-view-directive-template.html',
     controller: 'AuthController'
   })
   .when('/profile', {
-    templateUrl: '/templates/profile-directive-template.html',
+    templateUrl: '/templates/profile/profile-directive-template.html',
     controller: 'ProfileController'
   })
   .otherwise({
-    redirectTo: '/'
+    redirectTo: '/home'
   })
 }]);
