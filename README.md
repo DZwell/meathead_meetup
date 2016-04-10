@@ -8,14 +8,13 @@ First, create a database directory.
 
 Next, run `npm install`.
 
-Start the mongo server with `mongod --dbpath=./db --smallfiles`, the gulp tasks with `gulp build && gulp` and then the express server with `node server.js`.
+Start the mongo server with `mongod --dbpath=./db --smallfiles`, the gulp tasks with `gulp && gulp watch` and then the express server with `node server.js`.
 
 Finally, head to `localhost:3000` to use the app.
 
-####Some helpful(for now) Commands####
-
-
 ####To-do
+* Add response for server errors on front end
+
 
 #####Front-end
 * Generate gyms based on searched address (result.name & result.address)
