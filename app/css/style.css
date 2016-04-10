@@ -1,3 +1,7 @@
+html {
+  background-color: #1f1915;
+}
+
 a:hover, a:focus, a:active {
   text-decoration: none;
   color: #fff;
@@ -22,6 +26,13 @@ a:hover, a:focus, a:active {
 .line-space {
   margin-top: 50px;
 }
+
+/* Header */
+.header-shadow {
+  background-color: #fff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+}
+
 
 /* Footer */
 .uk-icon-github {

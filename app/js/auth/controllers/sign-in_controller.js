@@ -21,7 +21,9 @@ module.exports = function(app) {
     };
 
     $scope.renderRes = function(res) {
-      console.log(res);
+      var element = document.getElementById('sign-in-error');
+
+      element.innerHTML = 'Sign-in failed.  Check username or password.';
     };
   }]);
 };
