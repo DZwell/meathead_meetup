@@ -1,0 +1,37 @@
+<!-- Sign Up -->
+<div class="uk-width-large-1-2" data-ng-controller="SignUpController" data-ng-submit="authenticate(user)">
+  <form class="uk-form uk-form-stacked">
+    <h2 class="uk-text-center">Create a new account</h2>
+    <div class="uk-form-row">
+      <input class="uk-width-1-1" type="text" name="credentials[username]" value="" placeholder="Username" required="" autofocus="" data-ng-model="user.username">
+    </div>
+    <div class="uk-form-row">
+      <input class="uk-width-1-1" type="text" name="credentials[name]" value="" placeholder="Name" required="" autofocus="" data-ng-model="user.name">
+    </div>
+    <div class="uk-form-row">
+      <input class="uk-width-1-1" type="text" name="credentials[email]" value="" placeholder="Email" required="" autofocus="" data-ng-model="user.email">
+    </div>
+    <div class="uk-form-row">
+      <input class="uk-width-1-1" type="password" name="credentials[password]" value="" placeholder="Password" required="" data-ng-model="user.password">
+    </div>
+    <p class="uk-form-row uk-margin-small-bottom">
+      <button class="uk-button uk-button-success uk-button-large uk-width-1-1" type="submit">Sign Up</button>
+    </p>
+  </form>
+</div>
+
+<!-- Sign In -->
+<div class="uk-width-large-1-2" data-ng-controller="SignInController" data-ng-submit="authenticate(user)">
+  <form class="uk-form uk-form-stacked">
+    <h2 class="uk-text-center">Sign in to your account</h2>
+    <div class="uk-form-row">
+      <input class="uk-width-1-1" type="text" name="credentials[username]" value="" placeholder="Username" required="" autofocus="" data-ng-model="user.username">
+    </div>
+    <div class="uk-form-row">
+      <input class="uk-width-1-1" type="password" name="credentials[password]" value="" placeholder="Password" required="" data-ng-model="user.password">
+    </div>
+    <p class="uk-form-row uk-margin-small-bottom">
+      <button class="uk-button uk-button-primary uk-button-large uk-width-1-1" type="submit">Sign in</button>
+    </p>
+  </form>
+</div>

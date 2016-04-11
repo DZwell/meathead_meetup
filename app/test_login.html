@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html class="" lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Pagekit 0.9.0">
+  <title>Meathead</title>
+  <link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href="main.css" rel="stylesheet">
+</head>
+<body data-ng-app="MeatheadApp" data-ng-controller="AuthController">
+
+  <!-- Header -->
+  <div class="tm-navbar tm-navbar-overlay" data-uk-sticky="{'media':767,'showup':true,'animation':'uk-animation-slide-top'}" style="margin: 0px;">
+    <nav class="uk-navbar">
+      <a class="uk-navbar-brand" href="/">
+        <span>Meethead</span>
+      </a>
+      <div class="uk-position-top uk-flex uk-flex-center uk-hidden-small">
+        <ul class="uk-navbar-nav">
+          <div class="uk-navbar-content uk-hidden-small" style="padding-right: 0;">
+            <form class="uk-form uk-margin-remove uk-display-inline-block">
+              <input type="text" placeholder="This doesn't work">
+              <button class="uk-button" style="border: 0;">
+                <i class="fa fa-search"></i>
+              </button>
+            </form>
+          </div>
+        </ul>
+        <div class="uk-navbar-content uk-flex uk-flex-middle tm-visible-xlarge">
+          <ul class="tm-iconnav">
+            <li>
+              <a href="">
+                <i class="fa-icon fa fa-github"></i>
+              </a>
+            </li>
+            <li><a class="tm-icon-twitter" href=""></a></li>
+            <li><a class="tm-icon-gitter" href=""></a></li>
+            <li><a class="tm-icon-google" href=""></a></li>
+            <li><a class="tm-icon-youtube" href=""></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="uk-navbar-flip uk-hidden-small">
+        <div class="uk-navbar-content">
+          <a class="uk-button tm-button uk-button-primary" href="/user/login">Sign in</a>
+        </div>
+      </div>
+      <div class="uk-navbar-flip uk-visible-small">
+        <a href="#offcanvas" class="uk-navbar-toggle" data-uk-offcanvas=""></a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Body -->
+  <div id="tm-hero" class="tm-hero uk-block uk-block-large uk-cover-background uk-flex uk-flex-middle tm-height-viewport uk-block-muted">
+    <div class="uk-container uk-container-center">
+      <div class="tm-panel">
+        <div class="uk-grid uk-flex-middle uk-grid-divider uk-grid-match" data-uk-grid-margin="">
+
+          <!-- Sign Up -->
+          <div class="uk-width-large-1-2" data-ng-controller="SignUpController" data-ng-submit="authenticate(user)">
+            <form class="uk-form uk-form-stacked">
+              <h2 class="uk-text-center">Create a new account</h2>
+              <div class="uk-form-row">
+                <input class="uk-width-1-1" type="text" name="credentials[username]" value="" placeholder="Username" required="" autofocus="" data-ng-model="user.username">
+              </div>
+              <div class="uk-form-row">
+                <input class="uk-width-1-1" type="text" name="credentials[name]" value="" placeholder="Name" required="" autofocus="" data-ng-model="user.name">
+              </div>
+              <div class="uk-form-row">
+                <input class="uk-width-1-1" type="text" name="credentials[email]" value="" placeholder="Email" required="" autofocus="" data-ng-model="user.email">
+              </div>
+              <div class="uk-form-row">
+                <input class="uk-width-1-1" type="password" name="credentials[password]" value="" placeholder="Password" required="" data-ng-model="user.password">
+              </div>
+              <p class="uk-form-row uk-margin-small-bottom">
+                <button class="uk-button uk-button-success uk-button-large uk-width-1-1" type="submit">Sign Up</button>
+              </p>
+            </form>
+          </div>
+
+          <!-- Sign In -->
+          <div class="uk-width-large-1-2" data-ng-controller="SignInController" data-ng-submit="authenticate(user)">
+            <form class="uk-form uk-form-stacked">
+              <h2 class="uk-text-center">Sign in to your account</h2>
+              <div class="uk-form-row">
+                <input class="uk-width-1-1" type="text" name="credentials[username]" value="" placeholder="Username" required="" autofocus="" data-ng-model="user.username">
+              </div>
+              <div class="uk-form-row">
+                <input class="uk-width-1-1" type="password" name="credentials[password]" value="" placeholder="Password" required="" data-ng-model="user.password">
+              </div>
+              <p class="uk-form-row uk-margin-small-bottom">
+                <button class="uk-button uk-button-primary uk-button-large uk-width-1-1" type="submit">Sign in</button>
+              </p>
+            </form>
+          </div>
+
+        </div>
+        <p class="uk-margin-large-top uk-text-center">Find yourself a spotter, today!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+<!--   <div id="tm-footer" class="tm-footer uk-block uk-block-secondary uk-contrast">
+    <div class="uk-container uk-container-center uk-text-center">
+      <section class="uk-grid uk-grid-match" data-uk-grid-margin>
+        <div class="uk-width-medium-1-1">
+          <div class="uk-panel ">
+            <ul class="uk-subnav uk-flex uk-flex-center" style="margin-top: 5px;">
+              <li>©2016 Made by <a href="https://github.com/DZwell" target="_blank">Daniel</a> and <a href="http://www.mikeskalandunas.com/" target="_blank">Mike</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+ -->
+  <!-- Scripts -->
+  <script src="bundle.js"></script>
+</body>
+</html>
