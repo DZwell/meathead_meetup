@@ -17,7 +17,7 @@ require('./users/users')(meatheadApp);
 meatheadApp.config(['$routeProvider', function($route) {
   $route
   .when('/home', {
-    templateUrl: '/templates/home/main-view-directive-template.html',
+    templateUrl: '/templates/redesign/home-view-directive-template.html',
     controller: 'AuthController'
   })
   .when('/login', {
@@ -25,7 +25,7 @@ meatheadApp.config(['$routeProvider', function($route) {
     controller: 'AuthController'
   })
   .when('/profile', {
-    templateUrl: '/templates/profile/profile-directive-template.html',
+    templateUrl: '/templates/redesign/user-profile-view-directive-template.html',
     controller: 'ProfileController'
   })
   .otherwise({

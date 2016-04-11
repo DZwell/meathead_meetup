@@ -1,0 +1,55 @@
+<div class="uk-container uk-container-center">
+  <div class="uk-grid" data-uk-grid-match data-uk-grid-margin>
+    <main id="about" class="uk-width-1-1">
+      <div class="pk-system-messages"></div>
+      <article class="uk-article uk-text-center ">
+        <div class="uk-width-medium-3-4 uk-container-center" id="sign-up-form" style="margin-top: 100px;">
+
+          <!-- User Profile -->
+          <div class="uk-width-large-1-2 uk-container-center">
+            <form class="uk-form uk-form-stacked">
+
+              <ul class="uk-form uk-form-stacked">
+                <div class="uk-form-row">
+                  <li data-ng-if="currentUser">{{ currentUser.name }}</li>
+                </div>
+                <div class="uk-form-row">
+                  <li data-ng-if="currentUser">{{ currentUser.email }}</li>
+                </div>
+                <div class="uk-form-row">
+                  <li data-ng-if="currentUser">{{ currentUser.biograghy }}</li>
+                </div>
+                <div class="uk-form-row">
+                  <li data-ng-if="currentUser">{{ currentUser.quote }}</li>
+                </div>
+                <div class="uk-form-row">
+                  <li data-ng-if="currentUser">{{ currentUser.location }}</li>
+                </div>
+                <div class="uk-form-row">
+                  <li data-ng-if="currentUser">{{ currentUser.gym }}</li>
+                </div>
+              </ul>
+
+              <div class="uk-form uk-form-stacked">
+                <label for="biography">Edit Your Bio</label>
+                <input type="text" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.biography">
+
+                <label for="quote">Edit Your Quote</label>
+                <input type="text" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.quote">
+
+                <label for="quote">Edit Your Location</label>
+                <input type="text" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.location">
+
+                <label for="quote">Edit Your Gym</label>
+                <input type="text" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.gym">
+
+                <button data-ng-click="update(currentUser)">Save</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </article>
+    </main>
+  </div>
+</div>
