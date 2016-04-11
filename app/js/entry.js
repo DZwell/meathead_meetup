@@ -14,17 +14,17 @@ require('./directives/directives')(meatheadApp);
 require('./auth/auth')(meatheadApp);
 require('./users/users')(meatheadApp);
 
-meatheadApp.config(['$routeProvider', function($route) {
-  $route
-  .when('/home', {
-    templateUrl: '/templates/home/main-view-directive-template.html',
-    controller: 'AuthController'
-  })
-  .when('/profile', {
-    templateUrl: '/templates/profile/profile-directive-template.html',
-    controller: 'ProfileController'
-  })
-  .otherwise({
-    redirectTo: '/home'
-  })
-}]);
+// meatheadApp.config(['$routeProvider', function($route) {
+//   $route
+//   .when('/home', {
+//     templateUrl: '/templates/home/main-view-directive-template.html',
+//     controller: 'AuthController'
+//   })
+//   .when('/profile', {
+//     templateUrl: '/templates/profile/profile-directive-template.html',
+//     controller: 'ProfileController'
+//   })
+//   .otherwise({
+//     redirectTo: '/home'
+//   })
+// }]);

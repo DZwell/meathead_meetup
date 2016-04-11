@@ -9,26 +9,26 @@
           <div class="uk-width-large-1-2 uk-container-center">
             <form class="uk-form uk-form-stacked">
 
-              <div class="uk-form uk-form-stacked">
+              <ul class="uk-form uk-form-stacked">
                 <div class="uk-form-row">
-                  <p data-ng-if="currentUser">{{ currentUser.name }}</p>
+                  <li data-ng-if="currentUser">{{ currentUser.name }}</li>
                 </div>
                 <div class="uk-form-row">
-                  <p data-ng-if="currentUser">{{ currentUser.email }}</p>
+                  <li data-ng-if="currentUser">{{ currentUser.email }}</li>
                 </div>
                 <div class="uk-form-row">
-                  <p data-ng-if="currentUser">{{ currentUser.biography }}</p>
+                  <li data-ng-if="currentUser">{{ currentUser.biograghy }}</li>
                 </div>
                 <div class="uk-form-row">
-                  <p data-ng-if="currentUser">{{ currentUser.quote }}</p>
+                  <li data-ng-if="currentUser">{{ currentUser.quote }}</li>
                 </div>
                 <div class="uk-form-row">
-                  <p data-ng-if="currentUser">{{ currentUser.location }}</p>
+                  <li data-ng-if="currentUser">{{ currentUser.location }}</li>
                 </div>
                 <div class="uk-form-row">
-                  <p data-ng-if="currentUser">{{ currentUser.gym }}</p>
+                  <li data-ng-if="currentUser">{{ currentUser.gym }}</li>
                 </div>
-              </div>
+              </ul>
 
               <div class="uk-form uk-form-stacked">
                 <label for="biography">Edit Your Bio</label>
