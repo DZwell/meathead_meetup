@@ -5,6 +5,5 @@ module.exports = function(app) {
   require('./controllers/sign-in_controller')(app);
   require('./controllers/auth_controller')(app);
   require('./directives/login-directive')(app);
-  require('./directives/user-profile-directive')(app);
   require('./directives/login-view-directive')(app);
 };
