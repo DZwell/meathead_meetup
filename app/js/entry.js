@@ -26,7 +26,7 @@ meatheadApp.config(['$routeProvider', function($route) {
   })
   .when('/profile', {
     templateUrl: '/templates/user-profile-view-directive-template.html',
-    controller: 'ProfileController'
+    controller: 'UserController'
   })
   .otherwise({
     redirectTo: '/home'
