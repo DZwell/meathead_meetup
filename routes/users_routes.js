@@ -21,7 +21,10 @@ usersRouter.post('/users', function(req, res) {
   newUser.save(function(err, data) {
     if (err) return handleError(err, res);
 
-    res.json({success: true, msg: 'Meathead added.'});
+    res.json({
+      success: true,
+      msg: 'Meathead added.'
+    });
   });
 });
 
@@ -31,7 +34,9 @@ usersRouter.put('/users/:id', bodyParser.json(), function(req, res) {
   User.update({_id: req.params.id}, userData, function(err) {
     if (err) return handleError(err, res);
 
-    res.json({msg: 'Meathead edited.'});
+    res.json({
+      msg: 'Meathead edited.'
+    });
   });
 });
 
@@ -39,6 +44,8 @@ usersRouter.delete('/users/:id', function(req, res) {
   User.remove({_id: req.params.id}, function(err) {
     if (err) return handleError(err, res);
 
-    res.json({msg: 'Meathead deleted.'});
+    res.json({
+      msg: 'Meathead deleted.'
+    });
   });
 });

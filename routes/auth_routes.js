@@ -23,7 +23,10 @@ authRouter.post('/sign-up', jsonParser, function(req, res) {
     user.generateToken(function(err, token) {
       if (err) return handleError(err, res);
 
-      res.json({success: true, msg: 'Success!  Please login above.', token: token});
+      res.json({
+        success: true,
+        msg: 'Success!  Please login above.',
+        token: token});
     });
   });
 });
@@ -31,17 +34,24 @@ authRouter.post('/sign-up', jsonParser, function(req, res) {
 authRouter.get('/sign-in', basicHttp, function(req, res) {
   if (!(req.auth.username && req.auth.password)) {
     console.log(err);
-    return res.status(401).json({msg: 'Authenitcation failed.'});
+    return res.status(401).json({
+      msg: 'Authenitcation failed.'
+    });
   }
 
   User.findOne({'auth.basic.username': req.auth.username}, function(err, user) {
     if (err || !user || !user.checkPassword(req.auth.password)) {
       console.log(err);
-      return res.status(401).json({msg: 'Authenitcation failed.'});
+      return res.status(401).json({
+        msg: 'Authenitcation failed.'
+      });
     }
 
     user.generateToken(function(err, token) {
-      res.json({token: token, msg: 'Sign-in successful!'});
+      res.json({
+        token: token,
+        msg: 'Sign-in successful!'
+      });
    });
   });
 });
