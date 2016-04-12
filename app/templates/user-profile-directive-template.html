@@ -1,15 +1,15 @@
 <div class="uk-container uk-container-center">
   <div class="uk-grid" data-uk-grid-match data-uk-grid-margin>
-    <main id="about" class="uk-width-1-1">
-      <div class="pk-system-messages"></div>
+    <main class="uk-width-1-1">
       <article class="uk-article uk-text-center ">
         <div class="uk-width-medium-3-4 uk-container-center" style="margin-top: 50px;">
 
           <h1 class="uk-text-center">
             <strong>User Profile</strong>
           </h1>
-          <h2 ng-hide="currentUser.editing" data-ng-click="save(currentUser)">Edit Profile</h2>
-          <h2 ng-show="currentUser.editing" data-ng-click="update(currentUser)">Save Changes</h2>
+          <h2 class="uk-button" ng-hide="currentUser.editing" data-ng-click="save(currentUser)">Click here to edit your profile</h2>
+          <h2 class="uk-button" ng-show="currentUser.editing" data-ng-click="update(currentUser)">Save Changes</h2>
+          <h2 class="uk-button" ng-show="currentUser.editing" data-ng-click="reset(currentUser)">Cancel</h2>
 
           <!-- Profile -->
           <div class="uk-width-1-1 uk-grid-margin uk-row-first" ng-hide="currentUser.editing">
@@ -82,7 +82,7 @@
                   <h3 class="uk-h3 uk-margin-top-remove"><strong>Name</strong></h3>
                 </div>
                 <div class="uk-width-1-1 uk-width-medium-2-3 ">
-                  <input type="text" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.name">
+                  <input type="text" class=".uk-form-width-large" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.name">
                 </div>
               </div>
 
@@ -100,7 +100,7 @@
                   <h3 class="uk-h3 uk-margin-top-remove"><strong>Email Address</strong></h3>
                 </div>
                 <div class="uk-width-1-1 uk-width-medium-2-3 ">
-                  <input type="text" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.email">
+                  <input type="text" class=".uk-form-width-large" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.email">
                 </div>
               </div>
 
@@ -110,7 +110,7 @@
                   <h3 class="uk-h3 uk-margin-top-remove"><strong>Gym</strong></h3>
                 </div>
                 <div class="uk-width-1-1 uk-width-medium-2-3 ">
-                  <input type="text" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.gym">
+                  <input type="text" class=".uk-form-width-large" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.gym">
                 </div>
               </div>
 
@@ -119,7 +119,7 @@
                   <h3 class="uk-h3 uk-margin-top-remove"><strong>Quote</strong></h3>
                 </div>
                 <div class="uk-width-1-1 uk-width-medium-2-3 ">
-                  <input type="text" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.quote">
+                  <input type="text" class=".uk-form-width-large" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.quote">
                 </div>
               </div>
 
@@ -128,7 +128,7 @@
                   <h3 class="uk-h3 uk-margin-top-remove"><strong>Biography</strong></h3>
                 </div>
                 <div class="uk-width-1-1 uk-width-medium-2-3 ">
-                  <textarea type="text" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.biography">
+                  <textarea type="text" class=".uk-form-width-large" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.biography">
                 </div>
               </div>
 
