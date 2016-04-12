@@ -8,7 +8,8 @@
           <h1 class="uk-text-center">
             <strong>User Profile</strong>
           </h1>
-          <h2 data-ng-click="save(currentUser)">Edit Profile</h2>
+          <h2 ng-hide="currentUser.editing" data-ng-click="save(currentUser)">Edit Profile</h2>
+          <h2 ng-show="currentUser.editing" data-ng-click="update(currentUser)">Save Changes</h2>
 
           <!-- Profile -->
           <div class="uk-width-1-1 uk-grid-margin uk-row-first" ng-hide="currentUser.editing">
