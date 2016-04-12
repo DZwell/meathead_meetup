@@ -3,51 +3,136 @@
     <main id="about" class="uk-width-1-1">
       <div class="pk-system-messages"></div>
       <article class="uk-article uk-text-center ">
-        <div class="uk-width-medium-3-4 uk-container-center" id="sign-up-form" style="margin-top: 100px;">
+        <div class="uk-width-medium-3-4 uk-container-center" style="margin-top: 50px;">
 
-          <!-- User Profile -->
-          <div class="uk-width-large-1-2 uk-container-center">
-            <form class="uk-form uk-form-stacked">
+          <h1 class="uk-text-center">
+            <strong>User Profile</strong>
+          </h1>
+          <h2 data-ng-click="save(currentUser)">Edit Profile</h2>
 
-              <ul class="uk-form uk-form-stacked">
-                <div class="uk-form-row">
-                  <li data-ng-if="currentUser">{{ currentUser.name }}</li>
+          <!-- Profile -->
+          <div class="uk-width-1-1 uk-grid-margin uk-row-first" ng-hide="currentUser.editing">
+            <div class="uk-panel-body uk-text-left">
+
+              <div class="uk-grid" style="margin-top: 20px;">
+                <div class="uk-width-1-1 uk-width-medium-1-3">
+                  <h3 class="uk-h3 uk-margin-top-remove"><strong>Name</strong></h3>
                 </div>
-                <div class="uk-form-row">
-                  <li data-ng-if="currentUser">{{ currentUser.email }}</li>
+                <div class="uk-width-1-1 uk-width-medium-2-3 ">
+                  <p class="uk-column-large-1-2" data-ng-if="currentUser">{{ currentUser.name }}</p>
                 </div>
-                <div class="uk-form-row">
-                  <li data-ng-if="currentUser">{{ currentUser.biograghy }}</li>
-                </div>
-                <div class="uk-form-row">
-                  <li data-ng-if="currentUser">{{ currentUser.quote }}</li>
-                </div>
-                <div class="uk-form-row">
-                  <li data-ng-if="currentUser">{{ currentUser.location }}</li>
-                </div>
-                <div class="uk-form-row">
-                  <li data-ng-if="currentUser">{{ currentUser.gym }}</li>
-                </div>
-              </ul>
-
-              <div class="uk-form uk-form-stacked">
-                <label for="biography">Edit Your Bio</label>
-                <input type="text" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.biography">
-
-                <label for="quote">Edit Your Quote</label>
-                <input type="text" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.quote">
-
-                <label for="quote">Edit Your Location</label>
-                <input type="text" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.location">
-
-                <label for="quote">Edit Your Gym</label>
-                <input type="text" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.gym">
-
-                <button data-ng-click="update(currentUser)">Save</button>
               </div>
-            </form>
+
+              <div class="uk-grid" style="margin-top: 20px;">
+                <div class="uk-width-1-1 uk-width-medium-1-3">
+                  <h3 class="uk-h3 uk-margin-top-remove"><strong>Username</strong></h3>
+                </div>
+                <div class="uk-width-1-1 uk-width-medium-2-3 ">
+                  <p class="uk-column-large-1-2" data-ng-if="currentUser">{{ currentUser.username }}</p>
+                </div>
+              </div>
+
+              <div class="uk-grid" style="margin-top: 20px;">
+                <div class="uk-width-1-1 uk-width-medium-1-3">
+                  <h3 class="uk-h3 uk-margin-top-remove"><strong>Email Address</strong></h3>
+                </div>
+                <div class="uk-width-1-1 uk-width-medium-2-3 ">
+                  <p class="uk-column-large-1-2">{{ currentUser.email }}</p>
+                </div>
+              </div>
+
+
+              <div class="uk-grid" style="margin-top: 20px;">
+                <div class="uk-width-1-1 uk-width-medium-1-3">
+                  <h3 class="uk-h3 uk-margin-top-remove"><strong>Gym</strong></h3>
+                </div>
+                <div class="uk-width-1-1 uk-width-medium-2-3 ">
+                  <p class="uk-column-large-1-2" data-ng-if="currentUser">{{ currentUser.gym }}</p>
+                </div>
+              </div>
+
+              <div class="uk-grid" style="margin-top: 20px;">
+                <div class="uk-width-1-1 uk-width-medium-1-3">
+                  <h3 class="uk-h3 uk-margin-top-remove"><strong>Quote</strong></h3>
+                </div>
+                <div class="uk-width-1-1 uk-width-medium-2-3 ">
+                  <p class="uk-column-large-1-2" data-ng-if="currentUser">{{ currentUser.quote }}</p>
+                </div>
+              </div>
+
+              <div class="uk-grid" style="margin-top: 20px;">
+                <div class="uk-width-1-1 uk-width-medium-1-3">
+                  <h3 class="uk-h3 uk-margin-top-remove"><strong>Biography</strong></h3>
+                </div>
+                <div class="uk-width-1-1 uk-width-medium-2-3 ">
+                  <p class="uk-column-large-1-2">{{ currentUser.biography }}</p>
+                </div>
+              </div>
+
+            </div>
           </div>
 
+          <!-- Editor -->
+          <div class="uk-width-1-1 uk-grid-margin uk-row-first" ng-show="currentUser.editing">
+            <div class="uk-panel-body uk-text-left">
+
+              <div class="uk-grid" style="margin-top: 20px;">
+                <div class="uk-width-1-1 uk-width-medium-1-3">
+                  <h3 class="uk-h3 uk-margin-top-remove"><strong>Name</strong></h3>
+                </div>
+                <div class="uk-width-1-1 uk-width-medium-2-3 ">
+                  <input type="text" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.name">
+                </div>
+              </div>
+
+              <div class="uk-grid" style="margin-top: 20px;">
+                <div class="uk-width-1-1 uk-width-medium-1-3">
+                  <h3 class="uk-h3 uk-margin-top-remove"><strong>Username</strong></h3>
+                </div>
+                <div class="uk-width-1-1 uk-width-medium-2-3 ">
+                  <p class="uk-column-large-1-2" data-ng-if="currentUser">{{ currentUser.username }}</p>
+                </div>
+              </div>
+
+              <div class="uk-grid" style="margin-top: 20px;">
+                <div class="uk-width-1-1 uk-width-medium-1-3">
+                  <h3 class="uk-h3 uk-margin-top-remove"><strong>Email Address</strong></h3>
+                </div>
+                <div class="uk-width-1-1 uk-width-medium-2-3 ">
+                  <input type="text" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.email">
+                </div>
+              </div>
+
+
+              <div class="uk-grid" style="margin-top: 20px;">
+                <div class="uk-width-1-1 uk-width-medium-1-3">
+                  <h3 class="uk-h3 uk-margin-top-remove"><strong>Gym</strong></h3>
+                </div>
+                <div class="uk-width-1-1 uk-width-medium-2-3 ">
+                  <input type="text" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.gym">
+                </div>
+              </div>
+
+              <div class="uk-grid" style="margin-top: 20px;">
+                <div class="uk-width-1-1 uk-width-medium-1-3">
+                  <h3 class="uk-h3 uk-margin-top-remove"><strong>Quote</strong></h3>
+                </div>
+                <div class="uk-width-1-1 uk-width-medium-2-3 ">
+                  <input type="text" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.quote">
+                </div>
+              </div>
+
+              <div class="uk-grid" style="margin-top: 20px;">
+                <div class="uk-width-1-1 uk-width-medium-1-3">
+                  <h3 class="uk-h3 uk-margin-top-remove"><strong>Biography</strong></h3>
+                </div>
+                <div class="uk-width-1-1 uk-width-medium-2-3 ">
+                  <textarea type="text" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.biography">
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
       </article>
     </main>
