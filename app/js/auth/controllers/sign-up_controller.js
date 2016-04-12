@@ -6,16 +6,11 @@ module.exports = function(app) {
       $http.post('/api/sign-up', user)
         .then(function(res){
           $cookies.put('token', res.data.token);
-          $scope.renderRes(res.data.msg);
           $scope.getUser();
           $location.path('/profile');
         }, function(err) {
           console.log(err.data);
         });
-    };
-
-    $scope.renderRes = function(res) {
-      console.log(res);
     };
   }]);
 };

@@ -31,7 +31,6 @@ module.exports = function(app) {
 
       $http.put('/api/users/' + user._id, user)
       .then(function(res) {
-        console.log('User edited.');
       }, function(err) {
         $scope.errors.push('User not found.');
       });
@@ -41,7 +40,6 @@ module.exports = function(app) {
       $scope.users.splice($scope.users.indexOf(user), 1);
       $http.delete('/api/users/' + user._id)
       .then(function(res) {
-        console.log('User deleted.');
       }, function(err) {
         console.log(err.data);
         $scope.errors.push('Could not delete user.');

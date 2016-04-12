@@ -12,16 +12,11 @@ module.exports = function(app) {
       })
       .then(function(res) {
         $cookies.put('token', res.data.token);
-        $scope.renderRes(res.data.msg);
         $scope.getUser();
         $location.path('/profile');
       }, function(err) {
         console.log(err);
       });
-    };
-
-    $scope.renderRes = function(res) {
-      console.log(res);
     };
   }]);
 };

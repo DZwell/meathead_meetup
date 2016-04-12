@@ -22,16 +22,20 @@ var userSchema = new mongoose.Schema({
     trim: true
   },
   biography: {
-    type: String
+    type: String,
+    default: 'Add a biography.'
   },
   quote: {
-    type: String
+    type: String,
+    default: 'Add a quote.'
   },
   location: {
-    type: String
+    type: String,
+    default: 'Add a location.'
   },
   gym: {
-    type: String
+    type: String,
+    default: 'Add a gym.'
   },
   auth: {
     basic: {
