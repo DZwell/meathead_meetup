@@ -3,10 +3,9 @@
 module.exports = function(app) {
   app.controller('UserController', ['$scope', '$http', '$location', '$cookies', function($scope, $http, $location, $cookies) {
     $scope.users = [];
-    $scope.errors = [];
     $scope.newUser = {};
     $scope.gyms = [];
-    $scope.currentContent = {};
+    $scope.current = {};
 
     $scope.getAll = function() {
       $http.get('/api/users')
@@ -53,14 +52,24 @@ module.exports = function(app) {
     $scope.save = function(user) {
       user.editing = true;
 
-      $scope.currentContent[user._id] = {content: user.content};
+      $scope.current[user._id] = {
+        name: user.name,
+        email: user.email,
+        gym: user.gym,
+        quote: user.quote,
+        biography: user.biography
+      };
     };
 
     $scope.reset = function(user) {
-      var tempUser = $scope.currentContent[user._id];
+      var tempUser = $scope.current[user._id];
 
       $scope.user = angular.copy($scope.master);
-      user.content = tempUser.content;
+      user.name = tempUser.name;
+      user.email = tempUser.email;
+      user.gym = tempUser.gym;
+      user.quote = tempUser.quote;
+      user.biography = tempUser.biography;
       user.editing = false;
     };
   }]);

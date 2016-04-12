@@ -7,9 +7,9 @@
           <h1 class="uk-text-center">
             <strong>User Profile</strong>
           </h1>
-          <h2 class="uk-button" ng-hide="currentUser.editing" data-ng-click="save(currentUser)">Click here to edit your profile</h2>
-          <h2 class="uk-button" ng-show="currentUser.editing" data-ng-click="update(currentUser)">Save Changes</h2>
-          <h2 class="uk-button" ng-show="currentUser.editing" data-ng-click="reset(currentUser)">Cancel</h2>
+          <h2 class="uk-button uk-button-primary" ng-hide="currentUser.editing" data-ng-click="save(currentUser)">Click here to edit your profile</h2>
+          <h2 class="uk-button uk-button-success" ng-show="currentUser.editing" data-ng-click="update(currentUser)">Save Changes</h2>
+          <h2 class="uk-button uk-button-danger" ng-show="currentUser.editing" data-ng-click="reset(currentUser)">Cancel</h2>
 
           <!-- Profile -->
           <div class="uk-width-1-1 uk-grid-margin uk-row-first" ng-hide="currentUser.editing">
@@ -57,7 +57,7 @@
                   <h3 class="uk-h3 uk-margin-top-remove"><strong>Quote</strong></h3>
                 </div>
                 <div class="uk-width-1-1 uk-width-medium-2-3 ">
-                  <p class="uk-column-large-1-2" data-ng-if="currentUser">{{ currentUser.quote }}</p>
+                  <p class="uk-column-large-1-2" data-ng-if="currentUser"><em>"{{ currentUser.quote }}"</em></p>
                 </div>
               </div>
 
@@ -66,7 +66,7 @@
                   <h3 class="uk-h3 uk-margin-top-remove"><strong>Biography</strong></h3>
                 </div>
                 <div class="uk-width-1-1 uk-width-medium-2-3 ">
-                  <p class="uk-column-large-1-2">{{ currentUser.biography }}</p>
+                  <p>{{ currentUser.biography }}</p>
                 </div>
               </div>
 
@@ -82,7 +82,9 @@
                   <h3 class="uk-h3 uk-margin-top-remove"><strong>Name</strong></h3>
                 </div>
                 <div class="uk-width-1-1 uk-width-medium-2-3 ">
-                  <input type="text" class=".uk-form-width-large" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.name">
+                  <form class="uk-form">
+                    <input type="text" class="uk-form-width-large" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.name">
+                  </form>
                 </div>
               </div>
 
@@ -100,7 +102,9 @@
                   <h3 class="uk-h3 uk-margin-top-remove"><strong>Email Address</strong></h3>
                 </div>
                 <div class="uk-width-1-1 uk-width-medium-2-3 ">
-                  <input type="text" class=".uk-form-width-large" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.email">
+                  <form class="uk-form">
+                    <input type="text" class="uk-form-width-large" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.email">
+                  </form>
                 </div>
               </div>
 
@@ -110,7 +114,9 @@
                   <h3 class="uk-h3 uk-margin-top-remove"><strong>Gym</strong></h3>
                 </div>
                 <div class="uk-width-1-1 uk-width-medium-2-3 ">
-                  <input type="text" class=".uk-form-width-large" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.gym">
+                  <form class="uk-form">
+                    <input type="text" class="uk-form-width-large" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.gym">
+                  </form>
                 </div>
               </div>
 
@@ -119,7 +125,9 @@
                   <h3 class="uk-h3 uk-margin-top-remove"><strong>Quote</strong></h3>
                 </div>
                 <div class="uk-width-1-1 uk-width-medium-2-3 ">
-                  <input type="text" class=".uk-form-width-large" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.quote">
+                  <form class="uk-form">
+                    <input type="text" class="uk-form-width-large" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.quote">
+                  </form>
                 </div>
               </div>
 
@@ -128,7 +136,9 @@
                   <h3 class="uk-h3 uk-margin-top-remove"><strong>Biography</strong></h3>
                 </div>
                 <div class="uk-width-1-1 uk-width-medium-2-3 ">
-                  <textarea type="text" class=".uk-form-width-large" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.biography">
+                  <form class="uk-form">
+                    <textarea type="text" class="uk-form-width-large" id="profileForm{{currentUser._id}}" data-ng-model="currentUser.biography"></textarea>
+                  </form>
                 </div>
               </div>
 
