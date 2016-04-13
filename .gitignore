@@ -3,3 +3,4 @@ db
 .DS_Store
 build
 npm-debug.log
+.env
