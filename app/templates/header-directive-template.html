@@ -3,32 +3,31 @@
     <span>Meathead</span>
   </a>
   <div class="uk-position-top uk-flex uk-flex-center uk-hidden-small">
-<!--     <ul class="uk-navbar-nav">
+    <ul class="uk-navbar-nav">
       <div class="uk-navbar-content uk-hidden-small" style="padding-right: 0;">
         <form class="uk-form uk-margin-remove uk-display-inline-block">
-          <input type="text" placeholder="This doesn't work">
-          <button class="uk-button" style="border: 0;">
+          <input type="text" placeholder="Find a spotter" style="border: none;">
+          <a class="uk-button input-border-none" href="/#/search">
             <i class="fa fa-search"></i>
-          </button>
+          </a>
         </form>
       </div>
     </ul>
     <div class="uk-navbar-content uk-flex uk-flex-middle tm-visible-xlarge">
       <ul class="tm-iconnav">
         <li>
-          <a href="">
-            <i class="fa-icon fa fa-github"></i>
+          <a class="header-link" href="https://github.com/dzwell/meathead_meetup" target="_blank">
+            <span>View on
+              <i class="fa-icon fa fa-github"></i>
+            </span>
           </a>
         </li>
-        <li><a class="tm-icon-twitter" href=""></a></li>
-        <li><a class="tm-icon-gitter" href=""></a></li>
-        <li><a class="tm-icon-google" href=""></a></li>
-        <li><a class="tm-icon-youtube" href=""></a></li>
       </ul>
-    </div> -->
+    </div>
   </div>
   <div class="uk-navbar-flip uk-hidden-small">
     <div class="uk-navbar-content">
+      <a class="header-link" href="/#/profile" data-ng-if="currentUser" style="padding-right: 10px;">{{ currentUser.username }}</a>
       <a class="uk-button tm-button uk-button-primary" data-ng-if="currentUser" data-ng-click="logOut()">Logout</a>
       <a class="uk-button tm-button uk-button-primary" data-ng-if="!currentUser" href="/#/login">Sign in</a>
     </div>
