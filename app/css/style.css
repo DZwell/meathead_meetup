@@ -40,82 +40,10 @@
   text-decoration: none;
 }
 
-/*.tm-navbar {
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,.17);
-}*/
-
-/*.fa-icon {
-  color: #adadad;
-  display: inline-block;
-  width: 21px;
-  height: 20px;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  vertical-align: middle;
-  opacity: .3;
-}*/
-
-/* General */
-/*html {
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+.input-border-none {
+  border: none;
 }
 
-a:hover, a:focus, a:active {
-  text-decoration: none;
-  color: #fff;
+.header-link {
+  color: #C7C7CD;
 }
-
-#sign-in-success, #sign-up-error {
-  color: #ff5050;
-}
-
-#sign-up-success, #sign-up-success {
-  color: #66ff99;
-}
-
-.img-border {
-  border-radius: 10px;
-}
-
-.fa-inverse {
-  color: #525252;
-}
-
-.line-space {
-  margin-top: 50px;
-}
-
-.uk-button-primary {
-  background-color: #00A0B0;
-}
-
-.uk-button-primary:hover,
-.uk-button-primary:active,
-.uk-button-primary:focus {
-  background-color: #86a9ac;
-}
-
-.background-gradient {
-  background: -webkit-linear-gradient(-90deg,  #987b67, #ff8c66,  #987b67);
-  background: -o-linear-gradient(-90deg, #987b67, #ff8c66, #987b67);
-  background: -moz-linear-gradient(-90deg, #987b67, #ff8c66, #987b67);
-  background: linear-gradient(-90deg,  #53777A, #D95B43,  #53777A);
-}
-
-/* Header */
-/*.header-shadow {
-  background-color: #fff;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
-}
-
-
-/* Footer */
-/*.uk-icon-github {
-  color: rgba(255,255,255,0.7);
-}
-
-.uk-icon-github:active,
-.uk-icon-github:focus,
-.uk-icon-github:hover {
-  color: #4078c0;
-}*/
