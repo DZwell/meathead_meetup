@@ -8,7 +8,7 @@ First, create a database directory.
 
 Next, run `npm install`.
 
-Start the mongo server with `mongod --dbpath=./db --smallfiles`, the gulp tasks with `gulp && gulp watch` and then the express server with `node server.js`.
+Start the mongo server with `mongod --dbpath=./db --smallfiles`, the gulp tasks with `gulp && gulp watch`, and then the express server with `node server.js`.
 
 Finally, head to `localhost:3000` to use the app.
 
@@ -24,5 +24,4 @@ Finally, head to `localhost:3000` to use the app.
 * Top bar user button needs to display user info modally
 * Bottom panel needs to overlap map
 
-#####Back-end
-* Unique tokens [Watch this video](https://www.youtube.com/watch?v=6JrecqJhv4A&index=28&list=PLZshpIn7Zx06gSq--u7Sl70owX3cahriS)
+[Good Example Readme](https://github.com/yang70/secret-spot-saver)

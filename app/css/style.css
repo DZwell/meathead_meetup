@@ -1,21 +1,3 @@
-/*
-  Color Scheme
-
-  Scheme 1: Thought Provoking;
-  Yellow: #ECD078;
-  Orange: #D95B43;
-  Red: #C02942;
-  Maroon: #542437;
-  Grey/Green/Blue: #53777A;
-
-  Scheme 2: Ocean Five;
-  Yellow: #EDC951;
-  Orange: #EB6841;
-  Red: #CC333F;
-  Brown: #6A4A3C;
-  Blue: #00A0B0;
-*/
-
 /* General */
 .overlay {
   background-color: #1A1B23;
@@ -38,12 +20,4 @@
 
 .uk-link, a:hover {
   text-decoration: none;
-}
-
-.input-border-none {
-  border: none;
-}
-
-.header-link {
-  color: #C7C7CD;
 }

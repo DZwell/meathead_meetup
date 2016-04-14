@@ -1,17 +1,11 @@
-/*#form_container {
+#up_form_container {
     margin-left: 500px;
     margin-top: 50px;
 }
 
-html body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-#map {
+#up_map {
     height: 400px;
     width: 400px;
     margin-left: 500px;
 }
-*/
+
