@@ -6,6 +6,7 @@ module.exports = function(app) {
     $scope.newUser = {};
     $scope.gyms = [];
     $scope.current = {};
+    $scope.profile = {};
 
     $scope.getAll = function() {
       $http.get('/api/users')
@@ -13,6 +14,15 @@ module.exports = function(app) {
         $scope.users = res.data;
       }, function(err) {
         console.log(err.data);
+      });
+    };
+
+    $scope.get = function(user) {
+      $http.get('/api/users', user)
+      .then(function(res) {
+        $scope.profile = res.data;
+      }, function(err) {
+        console.log(err.data)
       });
     };
 

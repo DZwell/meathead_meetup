@@ -29,12 +29,14 @@
     "body-parser": "^1.14.2",
     "eat": "^0.1.1",
     "express": "^4.13.4",
+    "google-maps": "^3.2.1",
     "gulp": "^3.9.1",
     "gulp-concat-css": "^2.2.0",
     "gulp-cssnano": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "mongoose": "^4.4.1",
     "ngmap": "^1.17.1",
+    "scriptjs": "^2.5.8",
     "webpack-stream": "^3.1.0"
   },
   "devDependencies": {}

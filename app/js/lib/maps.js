@@ -1,3 +1,7 @@
+'use strict';
+
+module.exports = function() {
+
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 39.062, lng: -101.778},
@@ -133,3 +137,4 @@ function initMap() {
 }
 
 
+};
