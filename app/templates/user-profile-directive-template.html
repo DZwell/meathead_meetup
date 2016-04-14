@@ -111,7 +111,6 @@
                 </div>
               </div>
 
-
               <div class="uk-grid" style="margin-top: 20px;">
                 <div class="uk-width-1-1 uk-width-medium-1-3">
                   <h3 class="uk-h3 uk-margin-top-remove"><strong>Gym</strong></h3>
@@ -148,12 +147,34 @@
             </div>
           </div>
 
+          <!-- Delete Account -->
+          <div ng-show="currentUser">
+            <div class="uk-grid" style="margin-top: 20px;">
+              <div class="uk-width-1-1 uk-grid-margin uk-row-first">
+
+                <h3 class="uk-text-center" ng-show="!currentUser.toBeDeleted">
+                  <strong>Account</strong>
+                </h3>
+
+                <h3 class="uk-text-center" ng-hide="!currentUser.toBeDeleted">
+                  <strong>Are you sure?</strong>
+                </h3>
+
+                <div ng-show="currentUser">
+                  <h2 class="uk-button uk-button-danger" ng-show="!currentUser.toBeDeleted" data-ng-click="toBeDeleted(currentUser)">Delete Account</h2>
+                  <h2 class="uk-button uk-button-danger" ng-hide="!currentUser.toBeDeleted" data-ng-click="remove(currentUser)">Yes, I'm sure</h2>
+                  <h2 class="uk-button uk-button-success" ng-hide="!currentUser.toBeDeleted" data-ng-click="noDelete(currentUser)">I've changed my mind</h2>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
           <!-- Email Form -->
           <div ng-hide="currentUser">
             <div class="uk-grid" style="margin-top: 20px;">
               <div class="uk-width-1-1 uk-grid-margin uk-row-first">
 
-                <!-- Header -->
                 <h3 class="uk-text-center">
                   <strong>Spotter Request Form</strong>
                 </h3>
@@ -164,7 +185,7 @@
                     </div>
                     <div class="uk-width-1-1 uk-width-medium-2-3 ">
                       <form class="uk-form">
-                        <input type="text" class="uk-form-width-large" id="" data-ng-model="" style="border: none;">
+                        <input type="text" class="uk-form-width-large" id="" style="border: none;">
                       </form>
                     </div>
                   </div>
@@ -175,7 +196,7 @@
                     </div>
                     <div class="uk-width-1-1 uk-width-medium-2-3 ">
                       <form class="uk-form">
-                        <textarea type="text" class="uk-form-width-large" id="" data-ng-model="" style="border: none;"></textarea>
+                        <textarea type="text" class="uk-form-width-large" id="" style="border: none;"></textarea>
                       </form>
                     </div>
                   </div>
