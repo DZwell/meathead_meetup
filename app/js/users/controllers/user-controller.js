@@ -47,9 +47,12 @@ module.exports = function(app) {
     };
 
     $scope.remove = function(user) {
+      user.toBeDeleted = false;
+
       $scope.users.splice($scope.users.indexOf(user), 1);
       $http.delete('/api/users/' + user._id)
       .then(function(res) {
+        $location.path('/home');
       }, function(err) {
         console.log(err.data);
         $scope.errors.push('Could not delete user.');
@@ -79,6 +82,14 @@ module.exports = function(app) {
       user.quote = tempUser.quote;
       user.biography = tempUser.biography;
       user.editing = false;
+    };
+
+    $scope.toBeDeleted = function(user) {
+      user.toBeDeleted = true;
+    };
+
+    $scope.noDelete = function(user) {
+      user.toBeDeleted = false;
     };
   }]);
 };
