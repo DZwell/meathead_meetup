@@ -55,6 +55,10 @@ meatheadApp.config(['$routeProvider', function($route) {
     templateUrl: '/templates/search-view-directive-template.html',
     controller: 'UserController'
   })
+  .when('/test', {
+    templateUrl: '/templates/test-view-directive-template.html',
+    controller: 'UserController'
+  })
   .when('/:username', {
     templateUrl: '/templates/user-profile-view-directive-template.html',
     controller: 'UserController'
