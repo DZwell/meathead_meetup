@@ -22,6 +22,31 @@ module.exports = function(app) {
       });
     };
 
+    // if user isn't cuurent user,
+    // show username, quote, bio, email form
+    // email form shoyld be populated by {{ profile.email }}
+
+    // PROBLEMS
+    // how to get 'user' from URL
+    // data-ng-if="!currentUser" data-ng-if="token"
+    $scope.getProfile = function(user) {
+      $http.get('/api/users')
+      .then(function(res) {
+        $scope.profile = {
+          username: res.data.username,
+          biography: res.data.biography,
+          email: res.data.email,
+          quote: res.data.quote
+        };
+      }, function(err) {
+        console.log(err);
+      });
+    };
+
+    $scope.redirect = function() {
+      $location.path('/home');
+    };
+
     $scope.logOut = function() {
       $scope.token = null;
       $scope.currentUser = null;

@@ -56,6 +56,10 @@ authRouter.get('/sign-in', basicHttp, function(req, res) {
   });
 });
 
+// get req asking for username, bio, quote
+// if no token, redirect to home page
+// if token, give ability to email
+
 authRouter.get('/users', eatAuth, function(req, res) {
   res.json({
     _id: req.user._id,

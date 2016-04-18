@@ -1,4 +1,18 @@
-<div class="uk-container uk-container-center" data-ng-controller="MapController">
+<div class="uk-container uk-container-center">
+
+  <!--
+  **************************
+  **************************
+  **************************
+  **************************
+  Change this to a directive
+  **************************
+  **************************
+  **************************
+  **************************
+  -->
+  <div ng-hide="currentUser" data-ng-if="!token">{{ redirect() }}</div> <!-- Change this to a directive -->
+
   <div class="uk-grid" data-uk-grid-match data-uk-grid-margin>
     <main class="uk-width-1-1">
       <article class="uk-article uk-text-center ">
