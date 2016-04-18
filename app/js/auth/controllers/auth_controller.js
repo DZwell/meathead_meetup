@@ -29,6 +29,14 @@ module.exports = function(app) {
     // PROBLEMS
     // how to get 'user' from URL
     // data-ng-if="!currentUser" data-ng-if="token"
+
+    // 1.  go to meathead.com/#/<username>
+    // 2.  Take <username> and .get to search DB for that user
+    // 3.  use res to fill in username, bio, and quote on page, and email as the recipient of the email form.
+    // 4.  make post req to /mail to email that user w/ the message and subject from the email along with currentUser's email address as the sender.
+
+
+
     $scope.getProfile = function(user) {
       $http.get('/api/users')
       .then(function(res) {
