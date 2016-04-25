@@ -80,13 +80,13 @@ module.exports = function(app) {
         $scope.currentUser = null;
         $cookies.remove('token');
         $location.path('/home');
-        $location.path('/home');
       }, function(err) {
         console.log(err.data);
         $scope.errors.push('Could not delete user.');
         $scope.getAll();
       });
     };
+
     $scope.toBeDeleted = function(user) {
       user.toBeDeleted = true;
     };
