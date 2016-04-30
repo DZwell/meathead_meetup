@@ -2,20 +2,20 @@
 
 module.exports = function(app) {
   app.controller('UserController', ['$scope', '$http', '$location', '$cookies', function($scope, $http, $location, $cookies) {
-    $scope.users = [];
+    // $scope.users = [];
     $scope.newUser = {};
     $scope.gyms = [];
     $scope.current = {};
     $scope.profile = {};
 
-    $scope.getAll = function() {
-      $http.get('/api/users')
-      .then(function(res) {
-        $scope.users = res.data;
-      }, function(err) {
-        console.log(err.data);
-      });
-    };
+    // $scope.getAll = function() {
+    //   $http.get('/api/users')
+    //   .then(function(res) {
+    //     $scope.users = res.data;
+    //   }, function(err) {
+    //     console.log(err.data);
+    //   });
+    // };
 
     $scope.get = function(user) {
       $http.get('/api/users', user)
@@ -46,20 +46,6 @@ module.exports = function(app) {
       });
     };
 
-    $scope.remove = function(user) {
-      user.toBeDeleted = false;
-
-      $scope.users.splice($scope.users.indexOf(user), 1);
-      $http.delete('/api/users/' + user._id)
-      .then(function(res) {
-        $location.path('/home');
-      }, function(err) {
-        console.log(err.data);
-        $scope.errors.push('Could not delete user.');
-        $scope.getAll();
-      });
-    };
-
     $scope.save = function(user) {
       user.editing = true;
 
@@ -82,14 +68,6 @@ module.exports = function(app) {
       user.quote = tempUser.quote;
       user.biography = tempUser.biography;
       user.editing = false;
-    };
-
-    $scope.toBeDeleted = function(user) {
-      user.toBeDeleted = true;
-    };
-
-    $scope.noDelete = function(user) {
-      user.toBeDeleted = false;
     };
   }]);
 };

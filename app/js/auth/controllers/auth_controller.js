@@ -2,6 +2,16 @@
 
 module.exports = function(app) {
   app.controller('AuthController', ['$scope', '$http', '$cookies', '$location', function($scope, $http, $cookies, $location) {
+    $scope.users = [];
+    $scope.getAll = function() {
+      $http.get('/api/users')
+      .then(function(res) {
+        $scope.users = res.data;
+      }, function(err) {
+        console.log(err.data);
+      });
+    };
+
     $scope.getUser = function() {
       $scope.token = $cookies.get('token');
       $http.defaults.headers.common.token = $scope.token;
@@ -35,11 +45,6 @@ module.exports = function(app) {
     // 3.  use res to fill in username, bio, and quote on page, and email as the recipient of the email form.
     // 4.  make post req to /mail to email that user w/ the message and subject from the email along with currentUser's email address as the sender.
 
-
-    // What do I want to do?
-    // get username from the param
-
-
     $scope.getProfile = function(user) {
       $http.get('/api/users')
       .then(function(res) {
@@ -63,6 +68,31 @@ module.exports = function(app) {
       $scope.currentUser = null;
       $cookies.remove('token');
       $location.path('/home');
+    };
+
+    $scope.remove = function(user) {
+      user.toBeDeleted = false;
+
+      $scope.users.splice($scope.users.indexOf(user), 1);
+      $http.delete('/api/users/' + user._id)
+      .then(function(res) {
+        $scope.token = null;
+        $scope.currentUser = null;
+        $cookies.remove('token');
+        $location.path('/home');
+      }, function(err) {
+        console.log(err.data);
+        $scope.errors.push('Could not delete user.');
+        $scope.getAll();
+      });
+    };
+
+    $scope.toBeDeleted = function(user) {
+      user.toBeDeleted = true;
+    };
+
+    $scope.noDelete = function(user) {
+      user.toBeDeleted = false;
     };
   }]);
 };
