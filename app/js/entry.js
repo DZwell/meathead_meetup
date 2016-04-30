@@ -6,7 +6,7 @@ require('angular-cookies');
 require('angular-base64');
 var angular = window.angular;
 
-var meatheadApp = angular.module('MeatheadApp', ['ngRoute', 'ngCookies', 'base64']);
+var meatheadApp = angular.module('MeatheadApp', ['ngRoute', 'ngCookies', 'base64', 'google.places']);
 require('./services/services')(meatheadApp);
 require('./directives/directives')(meatheadApp);
 
@@ -31,7 +31,7 @@ meatheadApp.config(['$routeProvider', function($route) {
   })
   .when('/search', {
     templateUrl: '/templates/search-view-directive-template.html',
-    controller: 'UserController'
+    controller: 'MapController'
   })
   .when('/test', {
     templateUrl: '/templates/test-view-directive-template.html',

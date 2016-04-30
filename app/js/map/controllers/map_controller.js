@@ -1,147 +1,105 @@
-'use strict';
+//TODO: Make angular service to abstract away http requests
 
 module.exports = function(app) {
-  app.controller('MapController', ['$scope', function($scope) {
-    // $scope.API = 'https://maps.google.com/maps/api/js?key=AIzaSyD1j-GHVkBSNe2evr1j6lhZworXFsUwubA&callback=initMap&libraries=places';
 
-    // NgMap.getMap().then(function(map) {
-    //   console.log(map.getCenter());
-    //   console.log('markers', map.markers);
-    //   console.log('shapes', map.shapes);
-    // });
+  app.factory('googlePlacesApi', ['$window', function ($window) {
+    if (!$window.google) throw 'Global `google` var missing. Did you forget to include the places API script?';
 
-  //   $scope.initMap = function() {
-  //       map = new google.maps.Map(document.getElementById('map'), {
-  //         center: {lat: 39.062, lng: -101.778},
-  //         scrollwheel: false,
-  //         zoom: 12,
-  //         scaleControl: true
-  //       });
-
-  //       var infowindow = new google.maps.InfoWindow({content: ''});
-  //       var geocoder = new google.maps.Geocoder();
-  //       var service = new google.maps.places.PlacesService(map);
-  //       var input = document.getElementById('user-location-search');
-  //       var types = document.getElementById('form_container');
-  //       var autocomplete = new google.maps.places.Autocomplete(input);
-  //       var marker = new google.maps.Marker();
-
-
-  //       $('#submit').on('click', function(e) {
-  //         e.preventDefault();
-  //         if ($('#address').is(':checked')){
-  //           geocodeAddress(geocoder, map);
-  //         }
-  //         if ($('#place').is(':checked')){
-  //           setupClickListener(['establishment'])
-  //         }
-  //       });
-
-
-  //       function geocodeAddress(geocoder, resultsMap) {
-  //         var address = $('#user-location-search').val();
-  //         geocoder.geocode({'address': address}, function(results, status) {
-  //           if (status === google.maps.GeocoderStatus.OK) {
-  //             resultsMap.setCenter(results[0].geometry.location);
-  //             var latitude = results[0].geometry.location.lat();
-  //             var longitude = results[0].geometry.location.lng();
-  //             var userLocation = {lat: latitude, lng: longitude};
-
-  //             var service = new google.maps.places.PlacesService(map);
-  //             service.nearbySearch({
-  //               location: userLocation,
-  //               radius: 1000,
-  //               types: ['gym']
-  //             }, callback);
-  //           }
-  //           else {
-  //             alert('Geocode was not successful for the following reason: ' + status);
-  //           }
-  //         });
-  //       }
-
-
-  //       function callback(results, status) {
-  //         if (status === google.maps.places.PlacesServiceStatus.OK) {
-  //           for (var i = 0; i < results.length; i++) {
-  //             createMarker(results[i]);
-  //             map.setZoom(13);
-  //             $('#user-location-search').val('');
-  //           }
-  //         }
-  //       }
-
-  //       function createMarker(place) {
-  //         var placeLoc = place.geometry.location;
-  //         var marker = new google.maps.Marker({
-  //           map: map,
-  //           animation: google.maps.Animation.DROP,
-  //           position: place.geometry.location,
-  //         });
-
-  //         var request = {reference: place.reference};
-  //         google.maps.event.addListener(marker, 'click', function() {
-  //           service.getDetails(request, function(place, status) {
-  //             if (status == google.maps.places.PlacesServiceStatus.OK) {
-  //               infowindow.setContent('<div><strong>' + place.name + '</strong><br>'
-  //                 + place.formatted_address + '</div');
-  //               infowindow.open(map, marker);
-  //             }
-  //           });
-  //         }); //End marker event listener
-  //       } //End createMarker
-
-
-  //         autocomplete.bindTo('bounds', map);
-  //         var marker = new google.maps.Marker({
-  //           map: map,
-  //           anchorPoint: new google.maps.Point(0, -29)
-  //         });
-
-
-  //         autocomplete.addListener('place_changed', function() {
-  //           infowindow.close();
-  //           marker.setVisible(false);
-  //           var place = autocomplete.getPlace();
-  //           if (!place.geometry) {
-  //             window.alert("Autocomplete's returned place contains no geometry");
-  //             return;
-  //           }
-
-  //           if (place.geometry.viewport) {
-  //             map.fitBounds(place.geometry.viewport);
-  //           }
-  //           else {
-  //             map.setCenter(place.geometry.location);
-  //             map.setZoom(17);  // Why 17? Because it looks good.
-  //           }
-
-  //         marker.setPosition(place.geometry.location);
-  //         marker.setVisible(true);
-
-  //         var address = '';
-  //         if (place.address_components) {
-  //           address = [
-  //             (place.address_components[0] && place.address_components[0].short_name || ''),
-  //             (place.address_components[1] && place.address_components[1].short_name || ''),
-  //             (place.address_components[2] && place.address_components[2].short_name || '')
-  //           ].join(' ');
-  //         }
-
-  //         infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
-  //         infowindow.open(map, marker);
-  //         $('#user-location-search').val('');
-  //       }); //End autocomplete event listener
-
-
-  //       // Sets a listener on a radio button to change the filter type on Places
-  //       // Autocomplete.
-  //       function setupClickListener(id, types) {
-  //         var radioButton = document.getElementById(id);
-  //         radioButton.addEventListener('click', function() {
-  //           autocomplete.setTypes(types);
-  //         });
-  //       }
-  //   }
+    return $window.google;
   }]);
+
+  app.controller('MapController', ['$scope', '$http', '$window','googlePlacesApi',
+    function($scope, $http, $window, google) {
+
+      // This example adds a search box to a map, using the Google Place Autocomplete
+      // feature. People can enter geographical searches. The search box will return a
+      // pick list containing a mix of places and predicted search terms.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+
+      function initAutocomplete() {
+        console.log("i got run asshole");
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -33.8688, lng: 151.2195},
+          zoom: 13,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        console.log(map);
+
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('pac-input');
+        var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function() {
+          searchBox.setBounds(map.getBounds());
+        });
+
+        var markers = [];
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+
+          if (places.length == 0) {
+            return;
+          }
+
+          // Clear out the old markers.
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            var icon = {
+              url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
+
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+              map: map,
+              icon: icon,
+              title: place.name,
+              position: place.geometry.location
+            }));
+
+            if (place.geometry.viewport) {
+              // Only geocodes have viewport.
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+          map.fitBounds(bounds);
+        });
+      }
+      initAutocomplete();
+
+
+
+
+
+
+
+      $http.get('/api/businesses')
+        .then(
+          (data) => {
+            $scope.businesses = data;
+          },
+          (err) => {
+            console.log(err);
+          });
+    }]);
 };

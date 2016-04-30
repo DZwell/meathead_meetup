@@ -22,7 +22,8 @@ gulp.task('static:dev', function() {
 gulp.task('css:dev', function(){
   return gulp.src([
     'app/css/theme.css',
-    'app/css/style.css'
+    'app/css/style.css',
+    'angular-google-autocomplete.css'
   ])
   .pipe(concatCss('main.css'))
   .pipe(cssNano())

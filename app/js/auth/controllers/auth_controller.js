@@ -36,6 +36,9 @@ module.exports = function(app) {
     // 4.  make post req to /mail to email that user w/ the message and subject from the email along with currentUser's email address as the sender.
 
 
+    // What do I want to do?
+    // get username from the param
+
 
     $scope.getProfile = function(user) {
       $http.get('/api/users')
