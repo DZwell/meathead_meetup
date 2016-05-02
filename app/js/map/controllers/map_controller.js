@@ -85,11 +85,11 @@ module.exports = function(app) {
       initAutocomplete();
     }
 
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        initGoogleMaps(position.coords.latitude, position.coords.longitude, 13);
-      });
-    }
+    // if ('geolocation' in navigator) {
+    //   navigator.geolocation.getCurrentPosition(function(position) {
+    //     initGoogleMaps(position.coords.latitude, position.coords.longitude, 13);
+    //   });
+    // }
     //  else {
     //  initGoogleMaps(37.09024, -95.712891, 4)
     // }

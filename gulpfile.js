@@ -11,7 +11,8 @@ var staticFiles = [
   'app/**/*.mp3',
   'app/**/*.jpg',
   'app/**/*.png',
-  'app/**/*.jpeg'
+  'app/**/*.jpeg',
+  'app/**/*.ico'
 ];
 
 gulp.task('static:dev', function() {
