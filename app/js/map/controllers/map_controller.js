@@ -1,7 +1,6 @@
-//TODO: Make angular service to abstract away http requests
+'use strict';
 
 module.exports = function(app) {
-
   app.factory('googlePlacesApi', ['$window', function ($window) {
     if (!$window.google) throw 'Global `google` var missing. Did you forget to include the places API script?';
 
@@ -19,16 +18,14 @@ module.exports = function(app) {
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-
-      function initAutocomplete() {
-        console.log("i got run asshole");
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -33.8688, lng: 151.2195},
-          zoom: 13,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        });
-
-        console.log(map);
+      function initGoogleMaps(latitude, longitude, zoom){
+        function initAutocomplete() {
+          var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: latitude, lng: longitude},
+            zoom: zoom,
+            scrollwheel: false,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          });
 
         // Create the search box and link it to the UI element.
         var input = document.getElementById('pac-input');
@@ -45,7 +42,7 @@ module.exports = function(app) {
         // more details for that place.
         searchBox.addListener('places_changed', function() {
           var places = searchBox.getPlaces();
-
+          console.log(places);
           if (places.length == 0) {
             return;
           }
@@ -86,20 +83,17 @@ module.exports = function(app) {
         });
       }
       initAutocomplete();
+    }
+
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        initGoogleMaps(position.coords.latitude, position.coords.longitude, 13);
+      });
+    }
+    //  else {
+    //  initGoogleMaps(37.09024, -95.712891, 4)
+    // }
 
 
-
-
-
-
-
-      $http.get('/api/businesses')
-        .then(
-          (data) => {
-            $scope.businesses = data;
-          },
-          (err) => {
-            console.log(err);
-          });
     }]);
 };
