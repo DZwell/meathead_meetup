@@ -7,7 +7,7 @@
   "description": "Meet meatheads for meeting up for the gyms",
   "main": "server.js",
   "scripts": {
-    "postinstall": "gulp default",
+    "postinstall": "gulp build",
     "start": "node server.js"
   },
   "repository": {
