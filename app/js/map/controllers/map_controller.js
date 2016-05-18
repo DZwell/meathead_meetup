@@ -83,6 +83,8 @@ module.exports = function(app) {
         });
       }
       initAutocomplete();
+
+      initGoogleMaps(-34.397, 150.644, 4);
     }
 
     // if ('geolocation' in navigator) {

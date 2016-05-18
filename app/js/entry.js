@@ -15,7 +15,7 @@ require('./auth/auth')(meatheadApp);
 require('./users/users')(meatheadApp);
 require('./map/map')(meatheadApp);
 
-meatheadApp.config(['$routeProvider', '$locationProvider', function($route, $locationProvider) {
+meatheadApp.config(['$routeProvider', function($route) {
   $route
   .when('/home', {
     templateUrl: '/templates/home-view-directive-template.html',
@@ -44,9 +44,4 @@ meatheadApp.config(['$routeProvider', '$locationProvider', function($route, $loc
   .otherwise({
     redirectTo: '/home'
   })
-
-  $locationProvider.html5Mode({
-    enabled: true,
-    requireBase: false
-  });
 }]);

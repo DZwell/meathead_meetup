@@ -50,4 +50,4 @@ gulp.task('watch:build', function() {
 
 gulp.task('watch', ['watch:build']);
 gulp.task('build', ['webpack:dev', 'static:dev', 'css:dev']);
-gulp.task('default', ['build']);
+gulp.task('default', ['build', 'watch']);
